@@ -4,7 +4,6 @@
 
     <meta-data android:name="android.webkit.WebView.MetricsOptOut" android:value="true" />
     <meta-data android:name="android.webkit.WebView.EnableSafeBrowsing" android:value="true" />
-
     <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
