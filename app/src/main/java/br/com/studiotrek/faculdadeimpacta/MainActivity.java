@@ -22,6 +22,6 @@ public class MainActivity extends AppCompatActivity {
 
         wvMainPrincipal.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
         wvMainPrincipal.setWebViewClient(new WebViewClient());
-        wvMainPrincipal.loadUrl("https://www.impacta.edu.br/");
+        wvMainPrincipal.loadUrl("http://account.impacta.edu.br/index.php");
     }
 }
