@@ -1,12 +1,56 @@
 package br.com.studiotrek.faculdadeimpacta.presentation.login
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.view.View
+import br.com.studiotrek.faculdadeimpacta.App
+import br.com.studiotrek.faculdadeimpacta.R
+import br.com.studiotrek.faculdadeimpacta.presentation.MainActivity
+import kotlinx.android.synthetic.main.activity_login.*
+import javax.inject.Inject
 
-class LoginActivity : AppCompatActivity() {
+class LoginActivity : AppCompatActivity(), LoginPresenter.View {
+
+    @Inject
+    lateinit var presenter: LoginPresenter
+    private val TAG: String = "LoginActivity"
+
+    override fun successfulLogin() {
+        Log.d(TAG, "User logged in")
+        startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+    }
+
+    override fun badLogin(errorMessage: String) {
+        Log.d(TAG, "Couldn't log user in")
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+
+        init()
+
+    }
+
+    private fun init() {
+        (application as App).component.inject(this)
+        presenter.bindView(this)
+    }
+
+    fun doLogin(view: View) {
+
+        if (etRa.text.toString().isBlank()) {
+            etRa.error = "Este campo deve ser preenchido"
+            return
+        }
+
+        if (etPassword.text.toString().isBlank()) {
+            etPassword.error = "Este campo deve ser preenchido"
+            return
+        }
+
+        presenter.login(etRa.text.toString(), etPassword.text.toString())
     }
 }
