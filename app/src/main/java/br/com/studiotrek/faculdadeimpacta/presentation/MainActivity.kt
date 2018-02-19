@@ -1,12 +1,12 @@
-package br.com.studiotrek.faculdadeimpacta
+package br.com.studiotrek.faculdadeimpacta.presentation
 
 import android.annotation.SuppressLint
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.webkit.WebSettings
 import android.webkit.WebView
 import android.webkit.WebViewClient
+import br.com.studiotrek.faculdadeimpacta.R
 
 @SuppressLint("SetJavaScriptEnabled")
 class MainActivity : AppCompatActivity() {
