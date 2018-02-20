@@ -17,11 +17,7 @@ interface ImpactaApi {
 
     //TODO: Change jsonobject to appropriate classes
     @POST("horario")
-    fun getClassesSchedule(@Body body: JSONObject): Observable<JSONObject>
-
-    //TODO: Change jsonobject to appropriate classes
-    @POST("quadro-horario")
-    fun getStudentInformation(@Body body: String): Observable<JSONObject>
+    fun getClassesSchedule(@Body cookie: String): Observable<JSONObject>
 
     //TODO: Change jsonobject to appropriate classes
     @POST("semestre-nota")
