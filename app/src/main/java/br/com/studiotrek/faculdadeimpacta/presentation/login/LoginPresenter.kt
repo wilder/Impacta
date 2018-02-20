@@ -35,8 +35,7 @@ class LoginPresenter @Inject constructor(
                                 view.badLogin("Site da Impacta com problemas :/")
                             } else {
                                 //success
-                                saveUserInfo(it.body().cookie, ra, password)
-                                view.successfulLogin()
+                                view.successfulLogin(it.body().cookie)
                             }
                         },
                         //TODO: handle status codes
@@ -44,12 +43,8 @@ class LoginPresenter @Inject constructor(
 
     }
 
-    private fun saveUserInfo(cookie: String, ra: String, password: String) {
-        //TODO: save user information to shared preferences
-    }
-
     interface View{
-        fun successfulLogin()
+        fun successfulLogin(cookie: String)
         fun badLogin(errorMessage: String)
     }
 }
