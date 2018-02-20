@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Impacta</string>
+    <string name="required_field">Este campo deve ser preenchido</string>
+    <string name="ra">RA</string>
+    <string name="password">Senha</string>
+    <string name="login">Login</string>
 </resources>

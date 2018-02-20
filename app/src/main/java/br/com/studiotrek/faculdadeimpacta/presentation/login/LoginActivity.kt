@@ -39,12 +39,12 @@ class LoginActivity : AppCompatActivity(), LoginPresenter.View {
     fun doLogin(view: View) {
 
         if (etRa.text.toString().isBlank()) {
-            etRa.error = "Este campo deve ser preenchido"
+            etRa.error = getString(R.string.required_field)
             return
         }
 
         if (etPassword.text.toString().isBlank()) {
-            etPassword.error = "Este campo deve ser preenchido"
+            etPassword.error = getString(R.string.required_field)
             return
         }
 
