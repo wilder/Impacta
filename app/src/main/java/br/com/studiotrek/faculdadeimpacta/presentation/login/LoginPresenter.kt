@@ -1,5 +1,6 @@
 package br.com.studiotrek.faculdadeimpacta.presentation.login
 
+import br.com.studiotrek.faculdadeimpacta.domain.entity.Student
 import br.com.studiotrek.faculdadeimpacta.domain.repository.ImpactaApi
 import retrofit2.Retrofit
 import rx.android.schedulers.AndroidSchedulers
@@ -27,9 +28,16 @@ class LoginPresenter @Inject constructor(
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(
                         {
-                            //success
-                            saveUserInfo(it.cookie, ra, password)
-                            view.successfulLogin()
+                            if(it.code() == 401) {
+                                view.badLogin("Credenciais Inválidas")
+                            } else if (it.code() == 500) {
+                                //TODO: Go to some activity saying: "App in maintenance" or something like that
+                                view.badLogin("Site da Impacta com problemas :/")
+                            } else {
+                                //success
+                                saveUserInfo(it.body().cookie, ra, password)
+                                view.successfulLogin()
+                            }
                         },
                         //TODO: handle status codes
                         { view.badLogin(it.message.toString())}) //error

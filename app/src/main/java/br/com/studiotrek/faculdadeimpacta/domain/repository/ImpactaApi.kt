@@ -2,6 +2,7 @@ package br.com.studiotrek.faculdadeimpacta.domain.repository
 
 import br.com.studiotrek.faculdadeimpacta.presentation.login.LoginResponse
 import org.json.JSONObject
+import retrofit2.Response
 import retrofit2.http.*
 import rx.Observable
 
@@ -13,7 +14,7 @@ interface ImpactaApi {
 
     //TODO: create response class
     @GET("login/{ra}/{password}")
-    fun login(@Path("ra") ra: String, @Path("password") password: String): Observable<LoginResponse>
+    fun login(@Path("ra") ra: String, @Path("password") password: String): Observable<Response<LoginResponse>>
 
     //TODO: Change jsonobject to appropriate classes
     @POST("horario")
