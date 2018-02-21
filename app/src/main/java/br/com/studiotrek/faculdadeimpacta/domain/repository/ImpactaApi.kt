@@ -1,5 +1,6 @@
 package br.com.studiotrek.faculdadeimpacta.domain.repository
 
+import br.com.studiotrek.faculdadeimpacta.presentation.schedule.ScheduleResponse
 import br.com.studiotrek.faculdadeimpacta.presentation.login.LoginResponse
 import org.json.JSONObject
 import retrofit2.Response
@@ -18,7 +19,7 @@ interface ImpactaApi {
 
     //TODO: Change jsonobject to appropriate classes
     @POST("horario")
-    fun getClassesSchedule(@Body cookie: String): Observable<JSONObject>
+    fun getClassesSchedule(@Body cookie: String): Observable<Response<ScheduleResponse>>
 
     //TODO: Change jsonobject to appropriate classes
     @POST("semestre-nota")
