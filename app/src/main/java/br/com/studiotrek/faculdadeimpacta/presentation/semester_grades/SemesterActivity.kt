@@ -1,4 +1,4 @@
-package br.com.studiotrek.faculdadeimpacta.presentation.schedule
+package br.com.studiotrek.faculdadeimpacta.presentation.semester_grades
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
@@ -8,13 +8,13 @@ import br.com.studiotrek.faculdadeimpacta.dagger.`interface`.BaseDagger
 import javax.inject.Inject
 
 /**
- * Created by Kleber on 20/02/2018.
+ * Created by Kleber on 21/02/2018.
  */
-class ScheduleActivity : AppCompatActivity(), SchedulePresenter.View, BaseDagger {
+class SemesterActivity : AppCompatActivity(), SemesterPresenter.View, BaseDagger {
 
     @Inject
-    lateinit var presenter: SchedulePresenter
-    private val TAG: String = "ScheduleActivity"
+    lateinit var presenter: SemesterPresenter
+    private val TAG: String = "SemesterPresenter"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,17 +28,14 @@ class ScheduleActivity : AppCompatActivity(), SchedulePresenter.View, BaseDagger
     }
 
     fun doRequest(cookie : String) {
-        presenter.getSchedule(cookie)
+        presenter.getSemester(cookie)
     }
 
-    override fun successRequest(horarioModel: ScheduleModel) {
+    override fun successRequest(semesterModel: SemesterModel) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-        //Apresentar dados na activity
     }
 
     override fun badRequest(errorMessage: String) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-        //Apresentar dados na activity
     }
-
 }

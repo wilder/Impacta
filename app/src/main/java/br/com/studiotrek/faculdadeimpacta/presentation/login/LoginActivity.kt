@@ -7,13 +7,14 @@ import android.util.Log
 import android.view.View
 import br.com.studiotrek.faculdadeimpacta.App
 import br.com.studiotrek.faculdadeimpacta.R
+import br.com.studiotrek.faculdadeimpacta.dagger.`interface`.BaseDagger
 import br.com.studiotrek.faculdadeimpacta.domain.entity.Student
 import br.com.studiotrek.faculdadeimpacta.presentation.MainActivity
 import br.com.studiotrek.faculdadeimpacta.utils.PreferencesManager
 import kotlinx.android.synthetic.main.activity_login.*
 import javax.inject.Inject
 
-class LoginActivity : AppCompatActivity(), LoginPresenter.View {
+class LoginActivity : AppCompatActivity(), LoginPresenter.View, BaseDagger {
 
     @Inject
     lateinit var presenter: LoginPresenter

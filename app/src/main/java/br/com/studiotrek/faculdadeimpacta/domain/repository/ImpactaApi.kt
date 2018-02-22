@@ -2,6 +2,7 @@ package br.com.studiotrek.faculdadeimpacta.domain.repository
 
 import br.com.studiotrek.faculdadeimpacta.presentation.schedule.ScheduleResponse
 import br.com.studiotrek.faculdadeimpacta.presentation.login.LoginResponse
+import br.com.studiotrek.faculdadeimpacta.presentation.semester_grades.SemesterResponse
 import org.json.JSONObject
 import retrofit2.Response
 import retrofit2.http.*
@@ -23,6 +24,8 @@ interface ImpactaApi {
 
     //TODO: Change jsonobject to appropriate classes
     @POST("semestre-nota")
-    fun getCurrentSemesterGrades(@Body body: String): Observable<JSONObject>
+    fun getCurrentSemesterGrades(@Body cookie: String): Observable<Response<SemesterResponse>>
 
+    @POST("nota-falta")
+    fun getCurrentGrandesFailure(@Body cookie: String) : Observable<Response<JSONObject>>
 }
