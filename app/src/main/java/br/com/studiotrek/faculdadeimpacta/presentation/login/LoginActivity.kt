@@ -14,7 +14,7 @@ import br.com.studiotrek.faculdadeimpacta.utils.PreferencesManager
 import kotlinx.android.synthetic.main.activity_login.*
 import javax.inject.Inject
 
-class LoginActivity : AppCompatActivity(), LoginPresenter.View, BaseDagger {
+class LoginActivity : AppCompatActivity(), LoginPresenter.View {
 
     @Inject
     lateinit var presenter: LoginPresenter

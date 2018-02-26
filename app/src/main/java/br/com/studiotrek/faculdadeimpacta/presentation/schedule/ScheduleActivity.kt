@@ -10,7 +10,7 @@ import javax.inject.Inject
 /**
  * Created by Kleber on 20/02/2018.
  */
-class ScheduleActivity : AppCompatActivity(), SchedulePresenter.View, BaseDagger {
+class ScheduleActivity : AppCompatActivity(), SchedulePresenter.View {
 
     @Inject
     lateinit var presenter: SchedulePresenter
