@@ -1,7 +1,7 @@
 package br.com.studiotrek.faculdadeimpacta.domain.repository
 
-import br.com.studiotrek.faculdadeimpacta.presentation.schedule.ScheduleResponse
 import br.com.studiotrek.faculdadeimpacta.presentation.login.LoginResponse
+import br.com.studiotrek.faculdadeimpacta.presentation.schedule.ScheduleResponse
 import br.com.studiotrek.faculdadeimpacta.presentation.semester_grades.SemesterResponse
 import org.json.JSONObject
 import retrofit2.Response

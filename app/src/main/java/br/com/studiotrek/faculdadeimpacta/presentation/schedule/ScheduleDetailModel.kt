@@ -6,6 +6,6 @@ import com.google.gson.annotations.SerializedName
 /**
  * Created by Kleber on 20/02/2018.
  */
-class ScheduleDetailModel(@SerializedName("disciplina") @Expose var disciplina: String,
+class ScheduleDetailModel(@SerializedName("disciplina") @Expose var className: String,
                           @SerializedName("professor") @Expose var professor: String,
-                          @SerializedName("sala") @Expose var sala: String)
+                          @SerializedName("sala") @Expose var room: String)
