@@ -20,7 +20,7 @@ interface ImpactaApi {
 
     //TODO: Change jsonobject to appropriate classes
     @POST("horario")
-    fun getClassesSchedule(@Body cookie: String): Observable<Response<ScheduleResponse>>
+    fun getClassesSchedule(@Body cookie: String): Observable<Response<List<ScheduleResponse>>>
 
     //TODO: Change jsonobject to appropriate classes
     @POST("semestre-nota")
