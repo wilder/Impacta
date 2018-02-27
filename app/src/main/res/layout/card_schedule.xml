@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/txt_cshedule_troom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_base"
+        android:layout_marginRight="@dimen/margin_base"
+        android:layout_marginTop="@dimen/margin_base"
+        android:text="@string/semestre"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txt_cshedule_room"
+        android:layout_width="24dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/margin_base"
+        android:layout_marginStart="@dimen/margin_base"
+        android:text="308"
+        app:layout_constraintBaseline_toBaselineOf="@+id/txt_cshedule_troom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/txt_cshedule_troom" />
+
+
+    <TextView
+        android:id="@+id/txt_cshedule_tmatter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_base"
+        android:layout_marginRight="@dimen/margin_base"
+        android:layout_marginTop="@dimen/margin_top"
+        android:text="@string/materia"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_cshedule_troom" />
+
+    <TextView
+        android:id="@+id/txt_cshedule_matter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/margin_base"
+        android:layout_marginStart="@dimen/margin_base"
+        android:text="Programação"
+        app:layout_constraintBaseline_toBaselineOf="@+id/txt_cshedule_tmatter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/txt_cshedule_tmatter" />
+
+    <TextView
+        android:id="@+id/txt_cshedule_tteacher"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/margin_base"
+        android:layout_marginLeft="@dimen/margin_base"
+        android:layout_marginRight="@dimen/margin_base"
+        android:layout_marginTop="@dimen/margin_top"
+        android:text="@string/professor"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_cshedule_tmatter" />
+
+    <TextView
+        android:id="@+id/txt_cshedule_teacher"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/margin_base"
+        android:layout_marginStart="@dimen/margin_base"
+        android:text="Takai"
+        app:layout_constraintBaseline_toBaselineOf="@+id/txt_cshedule_tteacher"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/txt_cshedule_tteacher" />
+
+</android.support.constraint.ConstraintLayout>

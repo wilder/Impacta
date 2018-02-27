@@ -4,4 +4,8 @@
     <string name="ra">RA</string>
     <string name="password">Senha</string>
     <string name="login">Login</string>
+    <string name="semestre">Semestre</string>
+    <string name="visualizar">Visualizar</string>
+    <string name="materia">Materia</string>
+    <string name="professor">Professor</string>
 </resources>
