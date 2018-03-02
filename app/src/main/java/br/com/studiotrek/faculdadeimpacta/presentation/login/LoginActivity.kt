@@ -55,6 +55,6 @@ class LoginActivity : AppCompatActivity(), LoginPresenter.View {
         PreferencesManager(this).cookie = cookie
         PreferencesManager(this).user = Student(null, null, etRa.text.toString(), null, etPassword.text.toString())
         Log.d(TAG, "User logged in")
-        startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+        startActivity(Intent(this@LoginActivity, ScheduleActivity::class.java))
     }
 }

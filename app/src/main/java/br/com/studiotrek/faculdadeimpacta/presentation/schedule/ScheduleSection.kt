@@ -2,40 +2,32 @@ package br.com.studiotrek.faculdadeimpacta.presentation.schedule
 
 import android.support.v7.widget.RecyclerView
 import android.view.View
-import android.widget.TextView
-
 import br.com.studiotrek.faculdadeimpacta.R
 import io.github.luizgrp.sectionedrecyclerviewadapter.StatelessSection
+import kotlinx.android.synthetic.main.schedule_header.view.*
+import kotlinx.android.synthetic.main.schedule_item.view.*
 
 /**
  * Created by Wilder on 26/02/18.
  */
 
-class ScheduleSection(var classSchedule: ScheduleModel) : StatelessSection(R.layout.schedule_header, R.layout.schedule_item) {
+class ScheduleSection(var classSchedule: ScheduleResponse) : StatelessSection(R.layout.schedule_header, R.layout.schedule_item) {
 
     override fun getHeaderViewHolder(view: View): RecyclerView.ViewHolder {
         return HeaderViewHolder(view)
     }
 
     override fun onBindHeaderViewHolder(holder: RecyclerView.ViewHolder?) {
-        val headerHolder = holder as HeaderViewHolder?
+        holder as HeaderViewHolder?
+        holder?.bind(classSchedule.day)
     }
 
-    internal inner class HeaderViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    class HeaderViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
 
-        private val tvDay: TextView
-
-        init {
-
-            tvDay = view.findViewById<View>(R.id.tvDayHeader) as TextView
+        fun bind(title: String) {
+            view.tvDayHeader.text = title
         }
-    }
 
-    internal inner class ItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-
-        private val professor: TextView? = null
-        private val className: TextView? = null
-        private val room: TextView? = null
     }
 
     override fun getContentItemsTotal(): Int {
@@ -47,7 +39,20 @@ class ScheduleSection(var classSchedule: ScheduleModel) : StatelessSection(R.lay
     }
 
     override fun onBindItemViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        val itemHolder = holder as ItemViewHolder
+        holder as ItemViewHolder
+        val scheduledDetail = classSchedule.datailedSchedule.get(position)
+        holder.bind(scheduledDetail)
+    }
+
+    internal inner class ItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+
+        fun bind(scheduleDetail: ScheduleDetailModel) {
+            with (scheduleDetail) {
+                itemView.tvClassTitle.text = className
+                itemView.tvProfessorName.text = professor
+                itemView.tvClassroom.text = room
+            }
+        }
     }
 
 
