@@ -50,7 +50,7 @@ class ScheduleSection(var classSchedule: ScheduleResponse) : StatelessSection(R.
             with (scheduleDetail) {
                 itemView.tvClassTitle.text = className
                 itemView.tvProfessorName.text = professor
-                itemView.tvClassroom.text = room
+                itemView.tvClassroom.text = room.trim()
             }
         }
     }
