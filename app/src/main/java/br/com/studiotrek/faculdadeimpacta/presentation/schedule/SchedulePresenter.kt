@@ -1,5 +1,6 @@
 package br.com.studiotrek.faculdadeimpacta.presentation.schedule
 
+import br.com.studiotrek.faculdadeimpacta.domain.entity.CookieDTO
 import br.com.studiotrek.faculdadeimpacta.domain.repository.ImpactaApi
 import retrofit2.Retrofit
 import rx.android.schedulers.AndroidSchedulers
@@ -20,23 +21,23 @@ class SchedulePresenter @Inject constructor(
 
     fun getSchedule(cookie : String) {
         val api = retrofit.create(ImpactaApi::class.java)
-        api.getClassesSchedule(cookie)
+        api.getClassesSchedule(CookieDTO(cookie))
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
                     if(it.code() == 401) {
                         view.badRequest("Login expirado")
                     } else if (it.code() == 500) {
-                        view.badRequest("Erro interno")
+                        view.badRequest("Não foi possível buscar as aulas.\nTente novamente mais tarde.")
                     } else {
-                        view.successRequest(it.body().horarioModel)
+                        view.successRequest(it.body())
                     }
 
                 })
     }
 
     interface View{
-        fun successRequest(horarioModel: ScheduleModel)
+        fun successRequest(classSchedule: List<ScheduleResponse>)
         fun badRequest(errorMessage: String)
     }
 

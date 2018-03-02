@@ -1,5 +1,6 @@
 package br.com.studiotrek.faculdadeimpacta.domain.repository
 
+import br.com.studiotrek.faculdadeimpacta.domain.entity.CookieDTO
 import br.com.studiotrek.faculdadeimpacta.presentation.login.LoginResponse
 import br.com.studiotrek.faculdadeimpacta.presentation.schedule.ScheduleResponse
 import br.com.studiotrek.faculdadeimpacta.presentation.semester_grades.SemesterResponse
@@ -20,7 +21,7 @@ interface ImpactaApi {
 
     //TODO: Change jsonobject to appropriate classes
     @POST("horario")
-    fun getClassesSchedule(@Body cookie: String): Observable<Response<List<ScheduleResponse>>>
+    fun getClassesSchedule(@Body cookie: CookieDTO): Observable<Response<List<ScheduleResponse>>>
 
     //TODO: Change jsonobject to appropriate classes
     @POST("semestre-nota")
