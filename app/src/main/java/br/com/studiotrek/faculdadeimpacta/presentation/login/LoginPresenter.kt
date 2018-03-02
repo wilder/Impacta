@@ -34,7 +34,7 @@ class LoginPresenter @Inject constructor(
                                 view.badLogin("Site da Impacta com problemas :/")
                             } else {
                                 //success
-                                view.successfulLogin(it.body().cookie)
+                                view.successfulLogin(it.body())
                             }
                         },
                         //TODO: handle status codes
@@ -43,7 +43,7 @@ class LoginPresenter @Inject constructor(
     }
 
     interface View{
-        fun successfulLogin(cookie: String)
+        fun successfulLogin(cookie: LoginResponse)
         fun badLogin(errorMessage: String)
     }
 }

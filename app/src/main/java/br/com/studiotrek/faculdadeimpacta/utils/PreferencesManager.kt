@@ -2,6 +2,7 @@ package br.com.studiotrek.faculdadeimpacta.utils
 
 import android.content.Context
 import android.content.SharedPreferences
+import br.com.studiotrek.faculdadeimpacta.domain.entity.CookieDTO
 import br.com.studiotrek.faculdadeimpacta.domain.entity.Student
 import com.google.gson.Gson
 
@@ -17,9 +18,9 @@ class PreferencesManager (context: Context) {
     val INTRO_KEY = "intro_key"
     val prefs: SharedPreferences = context.getSharedPreferences(PREFS_FILENAME, 0)
 
-    var cookie: String
-        get() = prefs.getString(COOKIE_KEY, "")
-        set(value) = prefs.edit().putString(cookie, value).apply()
+    var cookie: CookieDTO
+        get() = Gson().fromJson(prefs.getString(COOKIE_KEY, ""), CookieDTO::class.java)
+        set(value) = prefs.edit().putString(COOKIE_KEY, Gson().toJson(value)).apply()
 
     var user: Student?
         get() = Gson().fromJson(prefs.getString(USER, ""), Student::class.java)

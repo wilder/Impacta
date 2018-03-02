@@ -9,6 +9,7 @@ import br.com.studiotrek.faculdadeimpacta.utils.PreferencesManager
 import javax.inject.Inject
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import br.com.studiotrek.faculdadeimpacta.domain.entity.CookieDTO
 import io.github.luizgrp.sectionedrecyclerviewadapter.SectionedRecyclerViewAdapter
 import kotlinx.android.synthetic.main.activity_schedule.*
 
@@ -47,7 +48,7 @@ class ScheduleActivity : AppCompatActivity(), SchedulePresenter.View {
 
     }
 
-    fun doRequest(cookie : String) {
+    fun doRequest(cookie : CookieDTO) {
         presenter.getSchedule(cookie)
     }
 

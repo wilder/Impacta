@@ -19,9 +19,9 @@ class SchedulePresenter @Inject constructor(
         this.view = view
     }
 
-    fun getSchedule(cookie : String) {
+    fun getSchedule(cookie : CookieDTO) {
         val api = retrofit.create(ImpactaApi::class.java)
-        api.getClassesSchedule(CookieDTO(cookie))
+        api.getClassesSchedule(cookie)
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({

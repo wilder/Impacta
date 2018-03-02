@@ -7,9 +7,8 @@ import android.util.Log
 import android.view.View
 import br.com.studiotrek.faculdadeimpacta.App
 import br.com.studiotrek.faculdadeimpacta.R
-import br.com.studiotrek.faculdadeimpacta.dagger.`interface`.BaseDagger
+import br.com.studiotrek.faculdadeimpacta.domain.entity.CookieDTO
 import br.com.studiotrek.faculdadeimpacta.domain.entity.Student
-import br.com.studiotrek.faculdadeimpacta.presentation.MainActivity
 import br.com.studiotrek.faculdadeimpacta.presentation.schedule.ScheduleActivity
 import br.com.studiotrek.faculdadeimpacta.utils.PreferencesManager
 import kotlinx.android.synthetic.main.activity_login.*
@@ -51,8 +50,8 @@ class LoginActivity : AppCompatActivity(), LoginPresenter.View {
         presenter.login(etRa.text.toString(), etPassword.text.toString())
     }
 
-    override fun successfulLogin(cookie: String) {
-        PreferencesManager(this).cookie = cookie
+    override fun successfulLogin(cookie: LoginResponse) {
+        PreferencesManager(this).cookie = CookieDTO(cookie.cookie)
         PreferencesManager(this).user = Student(null, null, etRa.text.toString(), null, etPassword.text.toString())
         Log.d(TAG, "User logged in")
         startActivity(Intent(this@LoginActivity, ScheduleActivity::class.java))
