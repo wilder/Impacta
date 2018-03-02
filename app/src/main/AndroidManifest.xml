@@ -26,6 +26,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".presentation.menu.MenuActivity"/>
 
         <activity android:name=".presentation.MainActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen"/>

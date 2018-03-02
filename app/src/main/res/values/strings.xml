@@ -8,4 +8,8 @@
     <string name="visualizar">Visualizar</string>
     <string name="materia">Materia</string>
     <string name="professor">Professor</string>
+    <string name="dia">Day</string>
+    <string name="home">Home</string>
+    <string name="grades">Notas</string>
+    <string name="schedule">Horario</string>
 </resources>
