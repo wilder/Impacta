@@ -11,7 +11,7 @@ import javax.inject.Inject
  */
 
 class LoginPresenter @Inject constructor(
-        val retrofit: Retrofit){
+        val retrofit: Retrofit) {
 
     lateinit var view: View
 
@@ -27,7 +27,7 @@ class LoginPresenter @Inject constructor(
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(
                         {
-                            if(it.code() == 401) {
+                            if (it.code() == 401) {
                                 view.badLogin("Credenciais Inválidas")
                             } else if (it.code() == 500) {
                                 //TODO: Go to some activity saying: "App in maintenance" or something like that
@@ -38,11 +38,11 @@ class LoginPresenter @Inject constructor(
                             }
                         },
                         //TODO: handle status codes
-                        { view.badLogin(it.message.toString())}) //error
+                        { view.badLogin(it.message.toString()) }) //error
 
     }
 
-    interface View{
+    interface View {
         fun successfulLogin(cookie: LoginResponse)
         fun badLogin(errorMessage: String)
     }

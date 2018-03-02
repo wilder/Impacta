@@ -1,6 +1,7 @@
 package br.com.studiotrek.faculdadeimpacta.domain.repository
 
 import br.com.studiotrek.faculdadeimpacta.domain.entity.CookieDTO
+import br.com.studiotrek.faculdadeimpacta.presentation.home.HomeScheduleResponse
 import br.com.studiotrek.faculdadeimpacta.presentation.login.LoginResponse
 import br.com.studiotrek.faculdadeimpacta.presentation.schedule.ScheduleResponse
 import br.com.studiotrek.faculdadeimpacta.presentation.semester_grades.SemesterResponse
@@ -29,4 +30,7 @@ interface ImpactaApi {
 
     @POST("nota-falta")
     fun getCurrentGrandesFailure(@Body cookie: String) : Observable<Response<JSONObject>>
+
+    @POST("aula-dia")
+    fun getHome(@Body cookie: CookieDTO) : Observable<Response<HomeScheduleResponse>>
 }
