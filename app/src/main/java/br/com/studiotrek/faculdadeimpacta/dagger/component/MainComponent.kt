@@ -4,7 +4,6 @@ package br.com.studiotrek.faculdadeimpacta.dagger.component
  * Created by Wilder on 18/02/18.
  */
 
-import br.com.studiotrek.faculdadeimpacta.dagger.`interface`.BaseDagger
 import br.com.studiotrek.faculdadeimpacta.dagger.module.MainModule
 import br.com.studiotrek.faculdadeimpacta.dagger.module.NetworkModule
 import br.com.studiotrek.faculdadeimpacta.presentation.login.LoginActivity
@@ -19,9 +18,7 @@ import javax.inject.Singleton
 @Singleton
 @Component(modules = [(NetworkModule::class), (MainModule::class)])
 interface MainComponent {
-    //fun inject(activity: BaseDagger)
     fun inject(activity: LoginActivity)
     fun inject(activity: ScheduleActivity)
-    fun inject(activity: SemesterActivity
-    )
+    fun inject(activity: SemesterActivity)
 }
