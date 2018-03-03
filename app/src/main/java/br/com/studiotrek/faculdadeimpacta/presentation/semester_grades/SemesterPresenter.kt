@@ -1,6 +1,7 @@
 package br.com.studiotrek.faculdadeimpacta.presentation.semester_grades
 
 import android.view.View
+import br.com.studiotrek.faculdadeimpacta.domain.entity.CookieDTO
 import br.com.studiotrek.faculdadeimpacta.domain.repository.ImpactaApi
 import retrofit2.Retrofit
 import rx.android.schedulers.AndroidSchedulers
@@ -19,9 +20,9 @@ class SemesterPresenter @Inject constructor(
         this.view = view
     }
 
-    fun getSemester(cookie : String) {
+    fun getSemester(cookie : CookieDTO) {
         val api = retrofit.create(ImpactaApi::class.java)
-        api.getCurrentSemesterGrades(cookie)
+        api.getCurrentSemesterGrades(cookie.cookie)
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
@@ -30,14 +31,14 @@ class SemesterPresenter @Inject constructor(
                     } else if (it.code() == 500) {
                         view.badRequest("Erro interno")
                     } else {
-                        view.successRequest(it.body().semesterModel)
+                        view.successRequest(it.body())
                     }
 
                 })
     }
 
     interface View{
-        fun successRequest(semesterModel: SemesterModel)
+        fun successRequest(semesterResponse: SemesterResponse)
         fun badRequest(errorMessage: String)
     }
 }

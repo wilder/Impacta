@@ -44,8 +44,6 @@ class ScheduleActivity : AppCompatActivity(), SchedulePresenter.View {
 
         rvSchedule.layoutManager = LinearLayoutManager(baseContext) as RecyclerView.LayoutManager?
         rvSchedule.adapter = sectionAdapter
-
-
     }
 
     fun doRequest(cookie : CookieDTO) {

@@ -49,8 +49,7 @@ class HomeActivity : AppCompatActivity(), HomePresenter.View {
     }
 
     fun doRequest(cookie: CookieDTO) {
-//        presenter.getHome(cookie)
-        cookie.cookie = "PHPSESSID=i0h77gs2g19rj2m3o462q509s1; path=/"
+        presenter.getHome(cookie)
         presenter.getHome(cookie)
     }
 

@@ -31,7 +31,7 @@
         <!--</activity>-->
         <!--<activity android:name=".presentation.home.HomeActivity"/>-->
 
-        <activity android:name=".presentation.home.HomeActivity">
+        <activity android:name=".presentation.semester_grades.SemesterActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -40,7 +40,7 @@
 
         <activity android:name=".presentation.menu.MenuActivity"/>
         <activity android:name=".presentation.schedule.ScheduleActivity"/>
-        <activity android:name=".presentation.semester_grades.SemesterActivity"/>
+        <!--<activity android:name=".presentation.semester_grades.SemesterActivity"/>-->
 
     </application>
 
