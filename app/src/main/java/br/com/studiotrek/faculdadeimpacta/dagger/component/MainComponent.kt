@@ -6,7 +6,7 @@ package br.com.studiotrek.faculdadeimpacta.dagger.component
 
 import br.com.studiotrek.faculdadeimpacta.dagger.module.MainModule
 import br.com.studiotrek.faculdadeimpacta.dagger.module.NetworkModule
-import br.com.studiotrek.faculdadeimpacta.presentation.home.HomeActivity
+import br.com.studiotrek.faculdadeimpacta.presentation.home.HomeFragment
 import br.com.studiotrek.faculdadeimpacta.presentation.login.LoginActivity
 import br.com.studiotrek.faculdadeimpacta.presentation.menu.MenuActivity
 import br.com.studiotrek.faculdadeimpacta.presentation.schedule.ScheduleActivity
@@ -24,5 +24,5 @@ interface MainComponent {
     fun inject(activity: ScheduleActivity)
     fun inject(activity: SemesterActivity)
     fun inject(activity: MenuActivity)
-    fun inject(activity: HomeActivity)
+    fun inject(fragment: HomeFragment)
 }
