@@ -9,7 +9,7 @@ import br.com.studiotrek.faculdadeimpacta.App
 import br.com.studiotrek.faculdadeimpacta.R
 import br.com.studiotrek.faculdadeimpacta.domain.entity.CookieDTO
 import br.com.studiotrek.faculdadeimpacta.domain.entity.Student
-import br.com.studiotrek.faculdadeimpacta.presentation.schedule.ScheduleActivity
+import br.com.studiotrek.faculdadeimpacta.presentation.menu.MenuActivity
 import br.com.studiotrek.faculdadeimpacta.utils.PreferencesManager
 import kotlinx.android.synthetic.main.activity_login.*
 import javax.inject.Inject
@@ -54,6 +54,7 @@ class LoginActivity : AppCompatActivity(), LoginPresenter.View {
         PreferencesManager(this).cookie = CookieDTO(cookie.cookie)
         PreferencesManager(this).user = Student(null, null, etRa.text.toString(), null, etPassword.text.toString())
         Log.d(TAG, "User logged in")
-        startActivity(Intent(this@LoginActivity, ScheduleActivity::class.java))
+//        startActivity(Intent(this@LoginActivity, ScheduleFragment::class.java))
+        startActivity(Intent(this@LoginActivity, MenuActivity::class.java))
     }
 }

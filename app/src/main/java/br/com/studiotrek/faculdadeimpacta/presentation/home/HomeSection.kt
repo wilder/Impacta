@@ -14,12 +14,21 @@ import kotlinx.android.synthetic.main.schedule_item.view.*
 class HomeSection(var classHome: HomeScheduleResponse) : StatelessSection(R.layout.home_header, R.layout.schedule_item) {
 
     override fun getHeaderViewHolder(view: View): RecyclerView.ViewHolder {
-        return HomeSection.HeaderViewHolder(view)
+        return HeaderViewHolder(view)
     }
 
     override fun onBindHeaderViewHolder(holder: RecyclerView.ViewHolder?) {
         holder as HeaderViewHolder?
         holder?.bind(classHome.name, classHome.course)
+    }
+
+    class HeaderViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
+
+        fun bind(name: String, course: String) {
+            view.tv_homeheader_name.text = String.format("Olá, %s", name)
+            view.tv_homeheader_course.text = String.format("Hoje suas aulas no %s são:", course)
+        }
+
     }
 
     override fun getContentItemsTotal(): Int {
@@ -31,18 +40,9 @@ class HomeSection(var classHome: HomeScheduleResponse) : StatelessSection(R.layo
     }
 
     override fun onBindItemViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        holder as HomeSection.ItemViewHolder
+        holder as ItemViewHolder
         val scheduledDetail = classHome.homeScheduleModel.scheduleDetail.get(position)
         holder.bind(scheduledDetail)
-    }
-
-    class HeaderViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
-
-        fun bind(name: String, course: String) {
-            view.tv_homeheader_name.text = String.format("Olá, %s", name)
-            view.tv_homeheader_course.text = String.format("Hoje suas aulas no %s são:", course)
-        }
-
     }
 
     internal inner class ItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

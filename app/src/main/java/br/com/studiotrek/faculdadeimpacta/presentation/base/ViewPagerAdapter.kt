@@ -1,4 +1,4 @@
-package br.com.studiotrek.faculdadeimpacta.presentation.home
+package br.com.studiotrek.faculdadeimpacta.presentation.base
 
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager

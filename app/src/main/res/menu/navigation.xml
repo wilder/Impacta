@@ -7,12 +7,12 @@
         android:title="@string/home" />
 
     <item
-        android:id="@+id/navigation_dashboard"
+        android:id="@+id/navigation_grades"
         android:icon="@mipmap/ic_launcher"
         android:title="@string/grades" />
 
     <item
-        android:id="@+id/navigation_notifications"
+        android:id="@+id/navigation_schedule"
         android:icon="@mipmap/ic_launcher"
         android:title="@string/schedule" />
 

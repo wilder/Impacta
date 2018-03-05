@@ -1,6 +1,5 @@
 package br.com.studiotrek.faculdadeimpacta.presentation.semester_grades
 
-import android.view.View
 import br.com.studiotrek.faculdadeimpacta.domain.entity.CookieDTO
 import br.com.studiotrek.faculdadeimpacta.domain.repository.ImpactaApi
 import retrofit2.Retrofit
