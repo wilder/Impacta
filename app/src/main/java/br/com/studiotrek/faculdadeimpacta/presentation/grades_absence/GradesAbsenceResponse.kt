@@ -6,5 +6,4 @@ import com.google.gson.annotations.SerializedName
 /**
  * Created by kleber on 05/03/2018.
  */
-class GradesAbsenceResponse (@SerializedName("nomeMateria") @Expose var nomeMateria: String,
-                             @SerializedName("json") @Expose var json: String)
+class GradesAbsenceResponse (@SerializedName("notas") @Expose var grades: List<GradesAbsenceModel>)

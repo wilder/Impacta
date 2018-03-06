@@ -21,7 +21,7 @@ class SemesterPresenter @Inject constructor(
 
     fun getSemester(cookie : CookieDTO) {
         val api = retrofit.create(ImpactaApi::class.java)
-        api.getCurrentSemesterGrades(cookie.cookie)
+        api.getSemesterGrades(cookie)
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({

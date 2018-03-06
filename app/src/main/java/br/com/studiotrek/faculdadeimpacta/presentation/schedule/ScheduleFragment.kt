@@ -64,7 +64,7 @@ class ScheduleFragment : Fragment(), SchedulePresenter.View {
     }
 
     override fun successRequest(classSchedule: List<ScheduleResponse>) {
-        Log.d(TAG, "horario: "+ classSchedule.size)
+        Log.d(TAG, "Schedule: "+ classSchedule.size)
         setupList(classSchedule)
     }
 

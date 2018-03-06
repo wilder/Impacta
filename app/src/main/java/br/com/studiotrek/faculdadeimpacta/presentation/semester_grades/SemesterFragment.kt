@@ -47,7 +47,7 @@ class SemesterFragment : Fragment(), SemesterPresenter.View {
     private fun setupList(semesterResponse : SemesterResponse) {
         val sectionAdapter = SectionedRecyclerViewAdapter()
 
-        sectionAdapter.addSection(SemesterSection(semesterResponse.semesterModel))
+        sectionAdapter.addSection(SemesterSection(semesterResponse))
 
         rvSemester.layoutManager = LinearLayoutManager(context!!) as RecyclerView.LayoutManager?
         rvSemester.adapter = sectionAdapter

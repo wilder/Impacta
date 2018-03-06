@@ -9,29 +9,25 @@ import kotlinx.android.synthetic.main.semester_item.view.*
 /**
  * Created by kleber on 02/03/2018.
  */
-class SemesterSection(var classSemesterModel: SemesterModel) : StatelessSection(R.layout.semester_item) {
+class SemesterSection(var classSemester: SemesterResponse) : StatelessSection(R.layout.semester_item) {
 
     override fun getHeaderViewHolder(view: View): RecyclerView.ViewHolder {
-        return super.getHeaderViewHolder(view)
+        return HeaderViewHolder(view)
     }
 
-//    override fun getHeaderViewHolder(view: View): RecyclerView.ViewHolder {
-//        return HeaderViewHolder(view)
-//    }
-
     override fun onBindHeaderViewHolder(holder: RecyclerView.ViewHolder?) {
-//        holder as HeaderViewHolder?
+        holder as HeaderViewHolder?
 //        holder?.bind(classSemester.day)
     }
 
-//    class HeaderViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
-//        fun bind(title: String) {
+    class HeaderViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
+        fun bind(title: String) {
 //            view.tvDayHeader.text = title
-//        }
-//    }
+        }
+    }
 
     override fun getContentItemsTotal(): Int {
-        return classSemesterModel.semestres.size;
+        return classSemester.semesterModel.size;
     }
 
     override fun getItemViewHolder(view: View): RecyclerView.ViewHolder {
@@ -40,7 +36,7 @@ class SemesterSection(var classSemesterModel: SemesterModel) : StatelessSection(
 
     override fun onBindItemViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         holder as ItemViewHolder
-        val semesterDetailModel = classSemesterModel.semestres.get(position)
+        val semesterDetailModel = classSemester.semesterModel.get(position)
         holder.bind(semesterDetailModel)
     }
 
@@ -48,10 +44,7 @@ class SemesterSection(var classSemesterModel: SemesterModel) : StatelessSection(
 
         fun bind(semesterDetailModel: SemesterDetailModel) {
             with (semesterDetailModel) {
-                itemView.tvSemester.text = semesterDetailModel.semestre;
-//                itemView.tvClassTitle.text = className
-//                itemView.tvProfessorName.text = professor
-//                itemView.tvClassroom.text = room.trim()
+                itemView.tvSemester.text = semesterDetailModel.semestre
             }
         }
     }

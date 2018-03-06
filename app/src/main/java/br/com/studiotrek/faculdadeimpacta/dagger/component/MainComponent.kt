@@ -6,6 +6,7 @@ package br.com.studiotrek.faculdadeimpacta.dagger.component
 
 import br.com.studiotrek.faculdadeimpacta.dagger.module.MainModule
 import br.com.studiotrek.faculdadeimpacta.dagger.module.NetworkModule
+import br.com.studiotrek.faculdadeimpacta.presentation.grades_absence.GrandesAbsenceFragment
 import br.com.studiotrek.faculdadeimpacta.presentation.home.HomeFragment
 import br.com.studiotrek.faculdadeimpacta.presentation.login.LoginActivity
 import br.com.studiotrek.faculdadeimpacta.presentation.menu.MenuActivity
@@ -21,8 +22,9 @@ import javax.inject.Singleton
 @Component(modules = [(NetworkModule::class), (MainModule::class)])
 interface MainComponent {
     fun inject(activity: LoginActivity)
-    fun inject(activity: ScheduleFragment)
-    fun inject(activity: SemesterFragment)
+    fun inject(fragment: ScheduleFragment)
+    fun inject(fragment: SemesterFragment)
     fun inject(activity: MenuActivity)
     fun inject(fragment: HomeFragment)
+    fun inject(fragment: GrandesAbsenceFragment)
 }
