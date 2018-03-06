@@ -57,6 +57,7 @@ class LoginActivity : AppCompatActivity(), LoginPresenter.View {
 
         pbLogin.visibility = View.INVISIBLE
         startActivity(Intent(this@LoginActivity, MenuActivity::class.java))
+        finish()
     }
 
     override fun badLogin(errorMessage: String) {
