@@ -12,6 +12,8 @@
     <string name="home">Home</string>
     <string name="grades">Notas</string>
     <string name="schedule">Horario</string>
-    <string name="home_name">Olá, Kleber Nunes</string>
-    <string name="home_course">Hoje suas aulas em Analise e desenvolvimento de sistemas são:</string>
+    <string name="home_name">Olá, aluno</string>
+    <string name="home_course">Hoje suas aulas em curso são:</string>
+    <string name="title_semester">Semestre</string>
+    <string name="view">Visualizar</string>
 </resources>

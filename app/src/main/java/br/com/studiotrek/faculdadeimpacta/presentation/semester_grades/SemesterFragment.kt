@@ -12,6 +12,7 @@ import br.com.studiotrek.faculdadeimpacta.R
 import br.com.studiotrek.faculdadeimpacta.domain.entity.CookieDTO
 import br.com.studiotrek.faculdadeimpacta.utils.PreferencesManager
 import io.github.luizgrp.sectionedrecyclerviewadapter.SectionedRecyclerViewAdapter
+import kotlinx.android.synthetic.main.activity_schedule.*
 import kotlinx.android.synthetic.main.activity_semester.*
 import javax.inject.Inject
 
@@ -41,6 +42,8 @@ class SemesterFragment : Fragment(), SemesterPresenter.View {
     private fun init() {
         ((activity!!.application) as App).component.inject(this)
         presenter.bindView(this)
+
+        pbSemester.visibility = View.VISIBLE
         doRequest(PreferencesManager(context!!).cookie)
     }
 
@@ -58,10 +61,11 @@ class SemesterFragment : Fragment(), SemesterPresenter.View {
     }
 
     override fun successRequest(semesterResponse: SemesterResponse) {
+        pbSemester.visibility = View.INVISIBLE
         setupList(semesterResponse)
     }
 
     override fun badRequest(errorMessage: String) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        pbSemester.visibility = View.INVISIBLE
     }
 }

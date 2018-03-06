@@ -14,6 +14,7 @@ import br.com.studiotrek.faculdadeimpacta.domain.entity.CookieDTO
 import br.com.studiotrek.faculdadeimpacta.utils.PreferencesManager
 import io.github.luizgrp.sectionedrecyclerviewadapter.SectionedRecyclerViewAdapter
 import kotlinx.android.synthetic.main.activity_home.*
+import kotlinx.android.synthetic.main.activity_login.*
 import javax.inject.Inject
 
 /**
@@ -42,6 +43,8 @@ class HomeFragment : Fragment(), HomePresenter.View {
     private fun init() {
         ((activity!!.application) as App).component.inject(this)
         presenter.bindView(this)
+
+        pbHome.visibility = View.VISIBLE
         doRequest(PreferencesManager(context!!).cookie)
     }
 
@@ -61,11 +64,13 @@ class HomeFragment : Fragment(), HomePresenter.View {
 
     override fun successRequest(classHome: HomeScheduleResponse) {
         Log.d(TAG, "home: " + classHome.name)
+        pbHome.visibility = View.INVISIBLE
         setupList(classHome)
     }
 
     override fun badRequest(errorMessage: String) {
         //Apresentar dados na activity
+        pbHome.visibility = View.INVISIBLE
     }
 
 }

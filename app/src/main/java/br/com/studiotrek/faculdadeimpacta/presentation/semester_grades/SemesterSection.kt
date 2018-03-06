@@ -2,8 +2,14 @@ package br.com.studiotrek.faculdadeimpacta.presentation.semester_grades
 
 import android.support.v7.widget.RecyclerView
 import android.view.View
+import android.widget.Toast
+import br.com.studiotrek.faculdadeimpacta.App
 import br.com.studiotrek.faculdadeimpacta.R
+import br.com.studiotrek.faculdadeimpacta.presentation.grades_absence.GrandesAbsenceFragment
+import br.com.studiotrek.faculdadeimpacta.presentation.menu.MenuActivity
+import br.com.studiotrek.faculdadeimpacta.presentation.menu.MenuActivity_MembersInjector
 import io.github.luizgrp.sectionedrecyclerviewadapter.StatelessSection
+import kotlinx.android.synthetic.main.activity_menu.view.*
 import kotlinx.android.synthetic.main.semester_item.view.*
 
 /**
@@ -44,9 +50,17 @@ class SemesterSection(var classSemester: SemesterResponse) : StatelessSection(R.
 
         fun bind(semesterDetailModel: SemesterDetailModel) {
             with (semesterDetailModel) {
+
+                itemView.bnView.setOnClickListener(object : View.OnClickListener {
+                    override fun onClick(v: View?) {
+                        Toast.makeText(itemView.context, "Houve clique", Toast.LENGTH_SHORT).show()
+                    }
+                })
+
                 itemView.tvSemester.text = semesterDetailModel.semestre
             }
         }
+
     }
 
 }

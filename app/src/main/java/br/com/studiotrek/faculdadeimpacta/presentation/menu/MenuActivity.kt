@@ -50,19 +50,20 @@ class MenuActivity : AppCompatActivity(), MenuPresenter.View {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menu)
         init()
-        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
+
     }
 
     private fun init() {
         (application as App).component.inject(this)
         presenter.bindView(this)
-//        viewPagerAdapter = ViewPagerAdapter(supportFragmentManager)
-//        setupViewPager(viewpager)
 
+        navigation.itemIconTintList = null
+        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
         setupFragmentTransaction(HomeFragment.newInstance())
+
     }
 
-    private fun setupFragmentTransaction(fragment: Fragment) {
+    fun setupFragmentTransaction(fragment: Fragment) {
         val fragmentTransaction = supportFragmentManager.beginTransaction()
         fragmentTransaction.replace(R.id.container, fragment)
         fragmentTransaction.disallowAddToBackStack()

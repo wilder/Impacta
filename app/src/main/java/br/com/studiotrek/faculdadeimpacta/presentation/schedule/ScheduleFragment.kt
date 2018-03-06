@@ -16,6 +16,7 @@ import android.view.ViewGroup
 import br.com.studiotrek.faculdadeimpacta.domain.entity.CookieDTO
 import br.com.studiotrek.faculdadeimpacta.presentation.home.HomeFragment
 import io.github.luizgrp.sectionedrecyclerviewadapter.SectionedRecyclerViewAdapter
+import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.activity_schedule.*
 
 
@@ -45,6 +46,8 @@ class ScheduleFragment : Fragment(), SchedulePresenter.View {
     private fun init() {
         ((activity!!.application) as App).component.inject(this)
         presenter.bindView(this)
+
+        pbSchedule.visibility = View.VISIBLE
         doRequest(PreferencesManager(context!!).cookie)
     }
 
@@ -65,11 +68,13 @@ class ScheduleFragment : Fragment(), SchedulePresenter.View {
 
     override fun successRequest(classSchedule: List<ScheduleResponse>) {
         Log.d(TAG, "Schedule: "+ classSchedule.size)
+        pbSchedule.visibility = View.INVISIBLE
         setupList(classSchedule)
     }
 
     override fun badRequest(errorMessage: String) {
         //Apresentar dados na activity
+        pbSchedule.visibility = View.INVISIBLE
     }
 
 }
