@@ -1,6 +1,7 @@
 package br.com.studiotrek.faculdadeimpacta.domain.repository
 
 import br.com.studiotrek.faculdadeimpacta.domain.entity.CookieDTO
+import br.com.studiotrek.faculdadeimpacta.presentation.grades_absence.GradesAbsenceRequest
 import br.com.studiotrek.faculdadeimpacta.presentation.grades_absence.GradesAbsenceResponse
 import br.com.studiotrek.faculdadeimpacta.presentation.home.HomeScheduleResponse
 import br.com.studiotrek.faculdadeimpacta.presentation.login.LoginResponse
@@ -30,7 +31,7 @@ interface ImpactaApi {
     fun getSemesterGrades(@Body cookie: CookieDTO): Observable<Response<SemesterResponse>>
 
     @POST("nota-falta")
-    fun getGradesAbsence(@Body cookie: CookieDTO, @Body url: String) : Observable<Response<List<GradesAbsenceResponse>>>
+    fun getGradesAbsence(@Body gradesAbsenceRequest: GradesAbsenceRequest) : Observable<Response<List<GradesAbsenceResponse>>>
 
     @POST("aula-dia")
     fun getHome(@Body cookie: CookieDTO) : Observable<Response<HomeScheduleResponse>>

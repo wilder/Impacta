@@ -13,6 +13,7 @@ import javax.inject.Inject
 import android.support.design.widget.BottomNavigationView
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentTransaction
+import android.widget.Toast
 import br.com.studiotrek.faculdadeimpacta.presentation.schedule.ScheduleFragment
 import br.com.studiotrek.faculdadeimpacta.presentation.semester_grades.SemesterFragment
 
@@ -31,15 +32,18 @@ class MenuActivity : AppCompatActivity(), MenuPresenter.View {
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
             R.id.navigation_home -> {
-                setupFragmentTransaction(HomeFragment.newInstance())
+//                setupFragmentTransaction(HomeFragment.newInstance())
+                viewpager.setCurrentItem(0,true)
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_grades -> {
-                setupFragmentTransaction(SemesterFragment.newInstance())
+//                setupFragmentTransaction(SemesterFragment.newInstance())
+                viewpager.setCurrentItem(1,true)
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_schedule -> {
-                setupFragmentTransaction(ScheduleFragment.newInstance())
+//                setupFragmentTransaction(ScheduleFragment.newInstance())
+                viewpager.setCurrentItem(2,true)
                 return@OnNavigationItemSelectedListener true
             }
         }
@@ -56,11 +60,12 @@ class MenuActivity : AppCompatActivity(), MenuPresenter.View {
     private fun init() {
         (application as App).component.inject(this)
         presenter.bindView(this)
-
+        viewPagerAdapter = ViewPagerAdapter(supportFragmentManager)
+        setupViewPager(viewpager)
         navigation.itemIconTintList = null
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
-        setupFragmentTransaction(HomeFragment.newInstance())
 
+//        setupFragmentTransaction(HomeFragment.newInstance())
     }
 
     fun setupFragmentTransaction(fragment: Fragment) {
@@ -75,8 +80,8 @@ class MenuActivity : AppCompatActivity(), MenuPresenter.View {
         val adapter = ViewPagerAdapter(supportFragmentManager)
 
         adapter.addFragment(HomeFragment.newInstance())
-        adapter.addFragment(ScheduleFragment.newInstance())
         adapter.addFragment(SemesterFragment.newInstance())
+        adapter.addFragment(ScheduleFragment.newInstance())
 
         viewPager.adapter = adapter
     }
