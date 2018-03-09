@@ -49,28 +49,28 @@ class GrandesAbsenceSection(var classGradesAbsence: GradesAbsenceResponse) : Sta
                 itemView.tvTitleMatters.text = gradesAbsenceModel.nomeMateria
 
                 if(gradesAbsenceModel.json.mb1 == "") {
-                    gradesAbsenceModel.json.mb1 = "0"
+                    gradesAbsenceModel.json.mb1 = "0.0"
                 } else {
                     val mb1 = gradesAbsenceModel.json.mb1.toDouble()
                     gradesAbsenceModel.json.mb1 = mb1.toString()
                 }
 
                 if(gradesAbsenceModel.json.faltas1 == "") {
-                    gradesAbsenceModel.json.faltas1 = "0"
+                    gradesAbsenceModel.json.faltas1 = "0.0"
                 } else {
                     val faltas1 = gradesAbsenceModel.json.faltas1.toDouble().toInt()
                     gradesAbsenceModel.json.faltas1 = faltas1.toString()
                 }
 
                 if(gradesAbsenceModel.json.mb2 == "") {
-                    gradesAbsenceModel.json.mb2 = "0"
+                    gradesAbsenceModel.json.mb2 = "0.0"
                 } else {
                     val mb2 = gradesAbsenceModel.json.mb2.toDouble()
                     gradesAbsenceModel.json.mb2 = mb2.toString()
                 }
 
                 if(gradesAbsenceModel.json.faltas2 == "") {
-                    gradesAbsenceModel.json.faltas2 = "0"
+                    gradesAbsenceModel.json.faltas2 = "0.0"
                 } else {
                     val faltas2 = gradesAbsenceModel.json.faltas2.toDouble().toInt()
                     gradesAbsenceModel.json.faltas2 = faltas2.toString()
