@@ -11,7 +11,6 @@ import br.com.studiotrek.faculdadeimpacta.App
 import br.com.studiotrek.faculdadeimpacta.R
 import br.com.studiotrek.faculdadeimpacta.domain.entity.CookieDTO
 import br.com.studiotrek.faculdadeimpacta.utils.PreferencesManager
-import io.github.luizgrp.sectionedrecyclerviewadapter.SectionedRecyclerViewAdapter
 import kotlinx.android.synthetic.main.activity_semester.*
 import javax.inject.Inject
 
@@ -47,9 +46,7 @@ class SemesterFragment : Fragment(), SemesterPresenter.View {
     }
 
     private fun setupList(semesterResponse : SemesterResponse) {
-        val sectionAdapter = SectionedRecyclerViewAdapter()
-
-        sectionAdapter.addSection(SemesterSection(semesterResponse))
+        val sectionAdapter = SemesterAdapter(semesterResponse)
 
         rvSemester.layoutManager = LinearLayoutManager(context!!) as RecyclerView.LayoutManager?
         rvSemester.adapter = sectionAdapter
