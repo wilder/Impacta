@@ -1,5 +1,6 @@
 package br.com.studiotrek.faculdadeimpacta.presentation.home
 
+import android.util.Log
 import br.com.studiotrek.faculdadeimpacta.domain.entity.CookieDTO
 import br.com.studiotrek.faculdadeimpacta.domain.repository.ImpactaApi
 import retrofit2.Retrofit
@@ -32,7 +33,9 @@ class HomePresenter @Inject constructor(
                     } else {
                         view.successRequest(it.body())
                     }
-
+                },{
+                    Log.e("HomePresenter: ",it.message)
+                    //view.badRequest()
                 })
     }
 

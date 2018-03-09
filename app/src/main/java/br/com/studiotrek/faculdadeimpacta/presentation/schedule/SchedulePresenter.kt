@@ -1,5 +1,6 @@
 package br.com.studiotrek.faculdadeimpacta.presentation.schedule
 
+import android.util.Log
 import br.com.studiotrek.faculdadeimpacta.domain.entity.CookieDTO
 import br.com.studiotrek.faculdadeimpacta.domain.repository.ImpactaApi
 import retrofit2.Retrofit
@@ -33,6 +34,9 @@ class SchedulePresenter @Inject constructor(
                         view.successRequest(it.body())
                     }
 
+                },{
+                    Log.e("SchedulePresenter: ",it.message)
+                    //view.badRequest()
                 })
     }
 

@@ -1,5 +1,6 @@
 package br.com.studiotrek.faculdadeimpacta.presentation.semesterGrades
 
+import android.util.Log
 import br.com.studiotrek.faculdadeimpacta.domain.entity.CookieDTO
 import br.com.studiotrek.faculdadeimpacta.domain.repository.ImpactaApi
 import retrofit2.Retrofit
@@ -33,6 +34,9 @@ class SemesterPresenter @Inject constructor(
                         view.successRequest(it.body())
                     }
 
+                },{
+                    Log.e("SemesterPresenter: ",it.message)
+                    //view.badRequest()
                 })
     }
 
