@@ -1,6 +1,5 @@
 package br.com.studiotrek.faculdadeimpacta.presentation.cardAccess
 
-import android.graphics.Typeface
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
@@ -8,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import br.com.studiotrek.faculdadeimpacta.R
 import br.com.studiotrek.faculdadeimpacta.presentation.schedule.SchedulePresenter
-import kotlinx.android.synthetic.main.fragment_card_access.*
 import javax.inject.Inject
 
 /**

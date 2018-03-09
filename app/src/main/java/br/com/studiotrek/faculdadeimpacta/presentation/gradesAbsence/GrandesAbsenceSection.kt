@@ -45,11 +45,41 @@ class GrandesAbsenceSection(var classGradesAbsence: GradesAbsenceResponse) : Sta
 
         fun bind(gradesAbsenceModel: GradesAbsenceModel) {
             with (gradesAbsenceModel) {
+
                 itemView.tvTitleMatters.text = gradesAbsenceModel.nomeMateria
-                itemView.tvGradeMb1.text = gradesAbsenceModel.json.mb1.toString()
-                itemView.tvFailureMb1.text = gradesAbsenceModel.json.faltas1.toString()
-                itemView.tvGradeMb2.text = gradesAbsenceModel.json.mb2.toString()
-                itemView.tvFailureMb2.text = gradesAbsenceModel.json.faltas2.toString()
+
+                if(gradesAbsenceModel.json.mb1 == "") {
+                    gradesAbsenceModel.json.mb1 = "0"
+                } else {
+                    val mb1 = gradesAbsenceModel.json.mb1.toDouble()
+                    gradesAbsenceModel.json.mb1 = mb1.toString()
+                }
+
+                if(gradesAbsenceModel.json.faltas1 == "") {
+                    gradesAbsenceModel.json.faltas1 = "0"
+                } else {
+                    val faltas1 = gradesAbsenceModel.json.faltas1.toDouble().toInt()
+                    gradesAbsenceModel.json.faltas1 = faltas1.toString()
+                }
+
+                if(gradesAbsenceModel.json.mb2 == "") {
+                    gradesAbsenceModel.json.mb2 = "0"
+                } else {
+                    val mb2 = gradesAbsenceModel.json.mb2.toDouble()
+                    gradesAbsenceModel.json.mb2 = mb2.toString()
+                }
+
+                if(gradesAbsenceModel.json.faltas2 == "") {
+                    gradesAbsenceModel.json.faltas2 = "0"
+                } else {
+                    val faltas2 = gradesAbsenceModel.json.faltas2.toDouble().toInt()
+                    gradesAbsenceModel.json.faltas2 = faltas2.toString()
+                }
+
+                itemView.tvGradeMb1.text = gradesAbsenceModel.json.mb1
+                itemView.tvFailureMb1.text = gradesAbsenceModel.json.faltas1
+                itemView.tvGradeMb2.text = gradesAbsenceModel.json.mb2
+                itemView.tvFailureMb2.text = gradesAbsenceModel.json.faltas2
             }
         }
     }
