@@ -17,20 +17,6 @@ class GrandesAbsenceActivity : AppCompatActivity(), GrandesAbsencePresenter.View
     lateinit var presenter: GrandesAbsencePresenter
     private val TAG: String = "GrandesAbsenceActivity"
 
-//    companion object {
-//        fun newInstance() = GrandesAbsenceActivity() as Fragment
-//    }
-
-//    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-//        super.onCreateView(inflater, container, savedInstanceState)
-//        return inflater.inflate(R.layout.activity_grades_absence, container, false)
-//    }
-//
-//    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-//        super.onViewCreated(view, savedInstanceState)
-//        init()
-//    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_grades_absence)
