@@ -10,12 +10,12 @@ import javax.inject.Inject
 /**
  * Created by kleber on 05/03/2018.
  */
-class GrandesAbsencePresenter @Inject constructor(
+class GradesAbsencePresenter @Inject constructor(
         val retrofit: Retrofit) {
 
-    lateinit var view: GrandesAbsencePresenter.View
+    lateinit var view: GradesAbsencePresenter.View
 
-    fun bindView(view: GrandesAbsencePresenter.View) {
+    fun bindView(view: GradesAbsencePresenter.View) {
         this.view = view
     }
 
