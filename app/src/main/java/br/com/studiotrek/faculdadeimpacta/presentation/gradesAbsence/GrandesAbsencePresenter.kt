@@ -32,7 +32,9 @@ class GrandesAbsencePresenter @Inject constructor(
                     } else {
                         view.successRequest(it.body())
                     }
-
+                },{
+                    Log.e("GradesAbsence: ",it.message)
+                    view.badRequest("Não foi possível buscar as aulas.\nTente novamente mais tarde.")
                 })
     }
 
