@@ -33,7 +33,6 @@
         <activity android:name=".presentation.menu.MenuActivity"/>
         <activity android:name=".presentation.gradesAbsence.GradesAbsenceActivity"/>
 
-
         <!--<activity android:name=".presentation.home.HomeActivity"/>-->
         <!--<activity android:name=".presentation.schedScheduleFragmentvity"/>-->
         <!--<activity android:name=".presentation.semester_grades.SemesterFragment"/>-->

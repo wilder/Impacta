@@ -11,7 +11,7 @@ import br.com.studiotrek.faculdadeimpacta.App
 import br.com.studiotrek.faculdadeimpacta.R
 import br.com.studiotrek.faculdadeimpacta.domain.entity.CookieDTO
 import br.com.studiotrek.faculdadeimpacta.utils.PreferencesManager
-import kotlinx.android.synthetic.main.activity_semester.*
+import kotlinx.android.synthetic.main.fragment_semester.*
 import javax.inject.Inject
 
 /**
@@ -29,7 +29,7 @@ class SemesterFragment : Fragment(), SemesterPresenter.View {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
-        return inflater.inflate(R.layout.activity_semester, container, false)
+        return inflater.inflate(R.layout.fragment_semester, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

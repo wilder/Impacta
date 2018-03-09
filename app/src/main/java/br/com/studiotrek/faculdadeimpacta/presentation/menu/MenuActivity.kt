@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity
 import br.com.studiotrek.faculdadeimpacta.App
 import br.com.studiotrek.faculdadeimpacta.R
 import br.com.studiotrek.faculdadeimpacta.presentation.base.ViewPagerAdapter
+import br.com.studiotrek.faculdadeimpacta.presentation.cardAccess.CardAccessFragment
 import br.com.studiotrek.faculdadeimpacta.presentation.home.HomeFragment
 import br.com.studiotrek.faculdadeimpacta.presentation.schedule.ScheduleFragment
 import br.com.studiotrek.faculdadeimpacta.presentation.semesterGrades.SemesterFragment
@@ -49,6 +50,7 @@ class MenuActivity : AppCompatActivity(), MenuPresenter.View {
         adapter.addFragment(HomeFragment.newInstance())
         adapter.addFragment(SemesterFragment.newInstance())
         adapter.addFragment(ScheduleFragment.newInstance())
+        adapter.addFragment(CardAccessFragment.newInstance())
 
         viewPager.adapter = adapter
     }
@@ -65,6 +67,10 @@ class MenuActivity : AppCompatActivity(), MenuPresenter.View {
             }
             R.id.navigation_schedule -> {
                 viewpager.setCurrentItem(2,true)
+                return@OnNavigationItemSelectedListener true
+            }
+            R.id.navigation_card -> {
+                viewpager.setCurrentItem(3,true)
                 return@OnNavigationItemSelectedListener true
             }
         }

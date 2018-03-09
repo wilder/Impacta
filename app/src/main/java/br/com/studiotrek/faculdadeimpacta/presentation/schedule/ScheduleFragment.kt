@@ -14,7 +14,7 @@ import android.view.View
 import android.view.ViewGroup
 import br.com.studiotrek.faculdadeimpacta.domain.entity.CookieDTO
 import io.github.luizgrp.sectionedrecyclerviewadapter.SectionedRecyclerViewAdapter
-import kotlinx.android.synthetic.main.activity_schedule.*
+import kotlinx.android.synthetic.main.fragment_schedule.*
 
 
 /**
@@ -32,7 +32,7 @@ class ScheduleFragment : Fragment(), SchedulePresenter.View {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
-        return inflater.inflate(R.layout.activity_schedule, container, false)
+        return inflater.inflate(R.layout.fragment_schedule, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

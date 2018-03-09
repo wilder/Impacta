@@ -16,4 +16,9 @@
         android:icon="@drawable/ic_schedule_white"
         android:title="@string/schedule" />
 
+    <item
+        android:id="@+id/navigation_card"
+        android:icon="@drawable/ic_card"
+        android:title="@string/card" />
+
 </menu>
