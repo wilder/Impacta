@@ -1,4 +1,4 @@
-package br.com.studiotrek.faculdadeimpacta.presentation.semester_grades
+package br.com.studiotrek.faculdadeimpacta.presentation.semesterGrades
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName

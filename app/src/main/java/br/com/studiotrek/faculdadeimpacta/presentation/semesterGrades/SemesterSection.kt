@@ -1,12 +1,11 @@
-package br.com.studiotrek.faculdadeimpacta.presentation.semester_grades
+package br.com.studiotrek.faculdadeimpacta.presentation.semesterGrades
 
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.widget.RecyclerView
 import android.view.View
-import android.widget.Toast
 import br.com.studiotrek.faculdadeimpacta.R
-import br.com.studiotrek.faculdadeimpacta.presentation.grades_absence.GrandesAbsenceActivity
+import br.com.studiotrek.faculdadeimpacta.presentation.gradesAbsence.GrandesAbsenceActivity
 import io.github.luizgrp.sectionedrecyclerviewadapter.StatelessSection
 import kotlinx.android.synthetic.main.semester_item.view.*
 
@@ -31,7 +30,7 @@ class SemesterSection(var classSemester: SemesterResponse) : StatelessSection(R.
     }
 
     override fun getContentItemsTotal(): Int {
-        return classSemester.semesterModel.size;
+        return classSemester.semesterModel.size
     }
 
     override fun getItemViewHolder(view: View): RecyclerView.ViewHolder {
@@ -40,7 +39,7 @@ class SemesterSection(var classSemester: SemesterResponse) : StatelessSection(R.
 
     override fun onBindItemViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         holder as ItemViewHolder
-        val semesterDetailModel = classSemester.semesterModel.get(position)
+        val semesterDetailModel = classSemester.semesterModel[position]
         holder.bind(semesterDetailModel)
     }
 
@@ -49,18 +48,14 @@ class SemesterSection(var classSemester: SemesterResponse) : StatelessSection(R.
         fun bind(semesterDetailModel: SemesterDetailModel) {
             with (semesterDetailModel) {
 
-                itemView.bnView.setOnClickListener(object : View.OnClickListener {
-                    override fun onClick(v: View?) {
-                        Toast.makeText(itemView.context, "Houve clique", Toast.LENGTH_SHORT).show()
+                itemView.bnView.setOnClickListener {
+                    val intent = Intent(itemView.context, GrandesAbsenceActivity::class.java)
+                    val bundle = Bundle()
+                    bundle.putString("urlSemestre", semesterDetailModel.urlBoletim)
+                    intent.putExtras(bundle)
 
-                        val intent = Intent(itemView.context, GrandesAbsenceActivity::class.java)
-                        val bundle = Bundle()
-                        bundle.putString("urlSemestre", semesterDetailModel.urlBoletim)
-                        intent.putExtras(bundle)
-
-                        itemView.context.startActivity(intent)
-                    }
-                })
+                    itemView.context.startActivity(intent)
+                }
 
                 itemView.tvSemester.text = semesterDetailModel.semestre
             }

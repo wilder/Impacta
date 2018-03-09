@@ -25,8 +25,8 @@ class HomeSection(var classHome: HomeScheduleResponse) : StatelessSection(R.layo
     class HeaderViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
 
         fun bind(name: String, course: String) {
-            view.tv_homeheader_name.text = String.format("Olá, %s", name)
-            view.tv_homeheader_course.text = String.format("Hoje suas aulas no %s são:", course)
+            view.tv_homeheader_name.text = "Olá, $name"
+            view.tv_homeheader_course.text = "Hoje suas aulas no $course são:"
         }
 
     }
@@ -41,7 +41,7 @@ class HomeSection(var classHome: HomeScheduleResponse) : StatelessSection(R.layo
 
     override fun onBindItemViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         holder as ItemViewHolder
-        val scheduledDetail = classHome.homeScheduleModel.scheduleDetail.get(position)
+        val scheduledDetail = classHome.homeScheduleModel.scheduleDetail[position]
         holder.bind(scheduledDetail)
     }
 
@@ -51,7 +51,7 @@ class HomeSection(var classHome: HomeScheduleResponse) : StatelessSection(R.layo
             with (scheduleDetail) {
                 itemView.tvClassTitle.text = className
                 itemView.tvProfessorName.text = professor
-                itemView.tvClassroom.text = room.trim()
+                itemView.tvClassroom.text = room
             }
         }
     }

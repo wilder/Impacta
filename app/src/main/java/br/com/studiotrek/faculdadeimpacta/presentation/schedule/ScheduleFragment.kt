@@ -2,7 +2,6 @@ package br.com.studiotrek.faculdadeimpacta.presentation.schedule
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import br.com.studiotrek.faculdadeimpacta.App
 import br.com.studiotrek.faculdadeimpacta.R
@@ -14,9 +13,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import br.com.studiotrek.faculdadeimpacta.domain.entity.CookieDTO
-import br.com.studiotrek.faculdadeimpacta.presentation.home.HomeFragment
 import io.github.luizgrp.sectionedrecyclerviewadapter.SectionedRecyclerViewAdapter
-import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.activity_schedule.*
 
 
@@ -48,7 +45,7 @@ class ScheduleFragment : Fragment(), SchedulePresenter.View {
         presenter.bindView(this)
 
         pbSchedule.visibility = View.VISIBLE
-        doRequest(PreferencesManager(context!!).cookie)
+        getSchedule(PreferencesManager(context!!).cookie)
     }
 
     private fun setupList(classSchedule: List<ScheduleResponse>) {
@@ -62,7 +59,7 @@ class ScheduleFragment : Fragment(), SchedulePresenter.View {
         rvSchedule.adapter = sectionAdapter
     }
 
-    fun doRequest(cookie : CookieDTO) {
+    fun getSchedule(cookie : CookieDTO) {
         presenter.getSchedule(cookie)
     }
 

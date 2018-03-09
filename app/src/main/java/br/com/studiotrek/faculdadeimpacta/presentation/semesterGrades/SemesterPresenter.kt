@@ -1,4 +1,4 @@
-package br.com.studiotrek.faculdadeimpacta.presentation.grades_absence
+package br.com.studiotrek.faculdadeimpacta.presentation.semesterGrades
 
 import br.com.studiotrek.faculdadeimpacta.domain.entity.CookieDTO
 import br.com.studiotrek.faculdadeimpacta.domain.repository.ImpactaApi
@@ -8,27 +8,27 @@ import rx.schedulers.Schedulers
 import javax.inject.Inject
 
 /**
- * Created by kleber on 05/03/2018.
+ * Created by Kleber on 21/02/2018.
  */
-class GrandesAbsencePresenter @Inject constructor(
+class SemesterPresenter @Inject constructor(
         val retrofit: Retrofit) {
 
-    lateinit var view: GrandesAbsencePresenter.View
+    lateinit var view: View
 
-    fun bindView(view: GrandesAbsencePresenter.View) {
+    fun bindView(view: View) {
         this.view = view
     }
 
-    fun getGrandesAbsence(gradesAbsenceRequest: GradesAbsenceRequest) {
+    fun getSemester(cookie : CookieDTO) {
         val api = retrofit.create(ImpactaApi::class.java)
-        api.getGradesAbsence(gradesAbsenceRequest)
+        api.getSemesterGrades(cookie)
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
-                    if (it.code() == 401) {
+                    if(it.code() == 401) {
                         view.badRequest("Login expirado")
                     } else if (it.code() == 500) {
-                        view.badRequest("Não foi possível buscar as aulas.\nTente novamente mais tarde.")
+                        view.badRequest("Erro interno")
                     } else {
                         view.successRequest(it.body())
                     }
@@ -36,9 +36,8 @@ class GrandesAbsencePresenter @Inject constructor(
                 })
     }
 
-    interface View {
-        fun successRequest(classGradesAbsence: List<GradesAbsenceResponse>)
+    interface View{
+        fun successRequest(semesterResponse: SemesterResponse)
         fun badRequest(errorMessage: String)
     }
-
 }

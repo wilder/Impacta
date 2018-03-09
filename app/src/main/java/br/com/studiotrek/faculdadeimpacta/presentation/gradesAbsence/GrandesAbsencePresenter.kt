@@ -1,6 +1,5 @@
-package br.com.studiotrek.faculdadeimpacta.presentation.semester_grades
+package br.com.studiotrek.faculdadeimpacta.presentation.gradesAbsence
 
-import br.com.studiotrek.faculdadeimpacta.domain.entity.CookieDTO
 import br.com.studiotrek.faculdadeimpacta.domain.repository.ImpactaApi
 import retrofit2.Retrofit
 import rx.android.schedulers.AndroidSchedulers
@@ -8,27 +7,27 @@ import rx.schedulers.Schedulers
 import javax.inject.Inject
 
 /**
- * Created by Kleber on 21/02/2018.
+ * Created by kleber on 05/03/2018.
  */
-class SemesterPresenter @Inject constructor(
+class GrandesAbsencePresenter @Inject constructor(
         val retrofit: Retrofit) {
 
-    lateinit var view: View
+    lateinit var view: GrandesAbsencePresenter.View
 
-    fun bindView(view: View) {
+    fun bindView(view: GrandesAbsencePresenter.View) {
         this.view = view
     }
 
-    fun getSemester(cookie : CookieDTO) {
+    fun getGrandesAbsence(gradesAbsenceRequest: GradesAbsenceRequest) {
         val api = retrofit.create(ImpactaApi::class.java)
-        api.getSemesterGrades(cookie)
+        api.getGradesAbsence(gradesAbsenceRequest)
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
-                    if(it.code() == 401) {
+                    if (it.code() == 401) {
                         view.badRequest("Login expirado")
                     } else if (it.code() == 500) {
-                        view.badRequest("Erro interno")
+                        view.badRequest("Não foi possível buscar as aulas.\nTente novamente mais tarde.")
                     } else {
                         view.successRequest(it.body())
                     }
@@ -36,8 +35,9 @@ class SemesterPresenter @Inject constructor(
                 })
     }
 
-    interface View{
-        fun successRequest(semesterResponse: SemesterResponse)
+    interface View {
+        fun successRequest(classGradesAbsence: List<GradesAbsenceResponse>)
         fun badRequest(errorMessage: String)
     }
+
 }

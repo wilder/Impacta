@@ -1,4 +1,4 @@
-package br.com.studiotrek.faculdadeimpacta.presentation.grades_absence
+package br.com.studiotrek.faculdadeimpacta.presentation.gradesAbsence
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName

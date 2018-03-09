@@ -8,14 +8,12 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import br.com.studiotrek.faculdadeimpacta.App
 import br.com.studiotrek.faculdadeimpacta.R
 import br.com.studiotrek.faculdadeimpacta.domain.entity.CookieDTO
 import br.com.studiotrek.faculdadeimpacta.utils.PreferencesManager
 import io.github.luizgrp.sectionedrecyclerviewadapter.SectionedRecyclerViewAdapter
 import kotlinx.android.synthetic.main.activity_home.*
-import kotlinx.android.synthetic.main.activity_login.*
 import javax.inject.Inject
 
 /**
@@ -63,10 +61,10 @@ class HomeFragment : Fragment(), HomePresenter.View {
         presenter.getHome(cookie)
     }
 
-    override fun successRequest(classHome: HomeScheduleResponse) {
-        Log.d(TAG, "home: " + classHome.name)
+    override fun successRequest(classSchedule: HomeScheduleResponse) {
+        Log.d(TAG, "home: " + classSchedule.name)
         pbHome.visibility = View.INVISIBLE
-        setupList(classHome)
+        setupList(classSchedule)
     }
 
     override fun badRequest(errorMessage: String) {

@@ -6,12 +6,12 @@ package br.com.studiotrek.faculdadeimpacta.dagger.component
 
 import br.com.studiotrek.faculdadeimpacta.dagger.module.MainModule
 import br.com.studiotrek.faculdadeimpacta.dagger.module.NetworkModule
-import br.com.studiotrek.faculdadeimpacta.presentation.grades_absence.GrandesAbsenceActivity
+import br.com.studiotrek.faculdadeimpacta.presentation.gradesAbsence.GrandesAbsenceActivity
 import br.com.studiotrek.faculdadeimpacta.presentation.home.HomeFragment
 import br.com.studiotrek.faculdadeimpacta.presentation.login.LoginActivity
 import br.com.studiotrek.faculdadeimpacta.presentation.menu.MenuActivity
 import br.com.studiotrek.faculdadeimpacta.presentation.schedule.ScheduleFragment
-import br.com.studiotrek.faculdadeimpacta.presentation.semester_grades.SemesterFragment
+import br.com.studiotrek.faculdadeimpacta.presentation.semesterGrades.SemesterFragment
 import dagger.Component
 import javax.inject.Singleton
 

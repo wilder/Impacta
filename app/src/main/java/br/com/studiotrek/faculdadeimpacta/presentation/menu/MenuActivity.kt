@@ -2,20 +2,17 @@ package br.com.studiotrek.faculdadeimpacta.presentation.menu
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.support.design.widget.BottomNavigationView
 import android.support.v4.view.ViewPager
 import android.support.v7.app.AppCompatActivity
 import br.com.studiotrek.faculdadeimpacta.App
 import br.com.studiotrek.faculdadeimpacta.R
-import br.com.studiotrek.faculdadeimpacta.presentation.home.HomeFragment
 import br.com.studiotrek.faculdadeimpacta.presentation.base.ViewPagerAdapter
+import br.com.studiotrek.faculdadeimpacta.presentation.home.HomeFragment
+import br.com.studiotrek.faculdadeimpacta.presentation.schedule.ScheduleFragment
+import br.com.studiotrek.faculdadeimpacta.presentation.semesterGrades.SemesterFragment
 import kotlinx.android.synthetic.main.activity_menu.*
 import javax.inject.Inject
-import android.support.design.widget.BottomNavigationView
-import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentTransaction
-import android.widget.Toast
-import br.com.studiotrek.faculdadeimpacta.presentation.schedule.ScheduleFragment
-import br.com.studiotrek.faculdadeimpacta.presentation.semester_grades.SemesterFragment
 
 
 @SuppressLint("Registered")
@@ -28,27 +25,6 @@ class MenuActivity : AppCompatActivity(), MenuPresenter.View {
     lateinit var presenter: MenuPresenter
     private val TAG: String = "MenuActivity"
     lateinit var viewPagerAdapter: ViewPagerAdapter
-
-    private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
-        when (item.itemId) {
-            R.id.navigation_home -> {
-//                setupFragmentTransaction(HomeFragment.newInstance())
-                viewpager.setCurrentItem(0,true)
-                return@OnNavigationItemSelectedListener true
-            }
-            R.id.navigation_grades -> {
-//                setupFragmentTransaction(SemesterFragment.newInstance())
-                viewpager.setCurrentItem(1,true)
-                return@OnNavigationItemSelectedListener true
-            }
-            R.id.navigation_schedule -> {
-//                setupFragmentTransaction(ScheduleFragment.newInstance())
-                viewpager.setCurrentItem(2,true)
-                return@OnNavigationItemSelectedListener true
-            }
-        }
-        false
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -65,15 +41,6 @@ class MenuActivity : AppCompatActivity(), MenuPresenter.View {
         navigation.itemIconTintList = null
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
 
-//        setupFragmentTransaction(HomeFragment.newInstance())
-    }
-
-    fun setupFragmentTransaction(fragment: Fragment) {
-        val fragmentTransaction = supportFragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.container, fragment)
-        fragmentTransaction.disallowAddToBackStack()
-        fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
-        fragmentTransaction.commit()
     }
 
     private fun setupViewPager(viewPager: ViewPager) {
@@ -85,4 +52,23 @@ class MenuActivity : AppCompatActivity(), MenuPresenter.View {
 
         viewPager.adapter = adapter
     }
+
+    private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
+        when (item.itemId) {
+            R.id.navigation_home -> {
+                viewpager.setCurrentItem(0,true)
+                return@OnNavigationItemSelectedListener true
+            }
+            R.id.navigation_grades -> {
+                viewpager.setCurrentItem(1,true)
+                return@OnNavigationItemSelectedListener true
+            }
+            R.id.navigation_schedule -> {
+                viewpager.setCurrentItem(2,true)
+                return@OnNavigationItemSelectedListener true
+            }
+        }
+        false
+    }
+
 }

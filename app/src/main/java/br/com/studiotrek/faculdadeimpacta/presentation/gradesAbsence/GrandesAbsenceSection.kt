@@ -1,4 +1,4 @@
-package br.com.studiotrek.faculdadeimpacta.presentation.grades_absence
+package br.com.studiotrek.faculdadeimpacta.presentation.gradesAbsence
 
 import android.support.v7.widget.RecyclerView
 import android.view.View

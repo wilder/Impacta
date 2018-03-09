@@ -2,7 +2,6 @@ package br.com.studiotrek.faculdadeimpacta.presentation.home
 
 import br.com.studiotrek.faculdadeimpacta.domain.entity.CookieDTO
 import br.com.studiotrek.faculdadeimpacta.domain.repository.ImpactaApi
-import br.com.studiotrek.faculdadeimpacta.presentation.schedule.ScheduleResponse
 import retrofit2.Retrofit
 import rx.android.schedulers.AndroidSchedulers
 import rx.schedulers.Schedulers

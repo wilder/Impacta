@@ -1,13 +1,12 @@
 package br.com.studiotrek.faculdadeimpacta.domain.repository
 
 import br.com.studiotrek.faculdadeimpacta.domain.entity.CookieDTO
-import br.com.studiotrek.faculdadeimpacta.presentation.grades_absence.GradesAbsenceRequest
-import br.com.studiotrek.faculdadeimpacta.presentation.grades_absence.GradesAbsenceResponse
+import br.com.studiotrek.faculdadeimpacta.presentation.gradesAbsence.GradesAbsenceRequest
+import br.com.studiotrek.faculdadeimpacta.presentation.gradesAbsence.GradesAbsenceResponse
 import br.com.studiotrek.faculdadeimpacta.presentation.home.HomeScheduleResponse
 import br.com.studiotrek.faculdadeimpacta.presentation.login.LoginResponse
 import br.com.studiotrek.faculdadeimpacta.presentation.schedule.ScheduleResponse
-import br.com.studiotrek.faculdadeimpacta.presentation.semester_grades.SemesterResponse
-import org.json.JSONObject
+import br.com.studiotrek.faculdadeimpacta.presentation.semesterGrades.SemesterResponse
 import retrofit2.Response
 import retrofit2.http.*
 import rx.Observable

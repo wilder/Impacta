@@ -1,12 +1,10 @@
-package br.com.studiotrek.faculdadeimpacta.presentation.grades_absence
+package br.com.studiotrek.faculdadeimpacta.presentation.gradesAbsence
 
 import android.os.Bundle
-import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import br.com.studiotrek.faculdadeimpacta.App
 import br.com.studiotrek.faculdadeimpacta.R
-import br.com.studiotrek.faculdadeimpacta.domain.entity.CookieDTO
 import br.com.studiotrek.faculdadeimpacta.utils.PreferencesManager
 import javax.inject.Inject
 
