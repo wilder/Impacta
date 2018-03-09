@@ -11,11 +11,11 @@ import javax.inject.Inject
 /**
  * Created by kleber on 05/03/2018.
  */
-class GrandesAbsenceActivity : AppCompatActivity(), GrandesAbsencePresenter.View {
+class GradesAbsenceActivity : AppCompatActivity(), GradesAbsencePresenter.View {
 
     @Inject
-    lateinit var presenter: GrandesAbsencePresenter
-    private val TAG: String = "GrandesAbsenceActivity"
+    lateinit var presenter: GradesAbsencePresenter
+    private val TAG: String = "GradesAbsenceActivity"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

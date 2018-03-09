@@ -7,7 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import br.com.studiotrek.faculdadeimpacta.R
-import br.com.studiotrek.faculdadeimpacta.presentation.gradesAbsence.GrandesAbsenceActivity
+import br.com.studiotrek.faculdadeimpacta.presentation.gradesAbsence.GradesAbsenceActivity
 import kotlinx.android.synthetic.main.semester_item.view.*
 
 /**
@@ -37,7 +37,7 @@ class SemesterAdapter(var classSemester: SemesterResponse) : RecyclerView.Adapte
             with (semesterDetailModel) {
 
                 itemView.bnView.setOnClickListener {
-                    val intent = Intent(itemView.context, GrandesAbsenceActivity::class.java)
+                    val intent = Intent(itemView.context, GradesAbsenceActivity::class.java)
                     val bundle = Bundle()
                     bundle.putString("urlSemestre", semesterDetailModel.urlBoletim)
                     intent.putExtras(bundle)

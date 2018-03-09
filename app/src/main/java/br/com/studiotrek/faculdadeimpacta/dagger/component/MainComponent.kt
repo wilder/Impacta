@@ -6,7 +6,7 @@ package br.com.studiotrek.faculdadeimpacta.dagger.component
 
 import br.com.studiotrek.faculdadeimpacta.dagger.module.MainModule
 import br.com.studiotrek.faculdadeimpacta.dagger.module.NetworkModule
-import br.com.studiotrek.faculdadeimpacta.presentation.gradesAbsence.GrandesAbsenceActivity
+import br.com.studiotrek.faculdadeimpacta.presentation.gradesAbsence.GradesAbsenceActivity
 import br.com.studiotrek.faculdadeimpacta.presentation.home.HomeFragment
 import br.com.studiotrek.faculdadeimpacta.presentation.login.LoginActivity
 import br.com.studiotrek.faculdadeimpacta.presentation.menu.MenuActivity
@@ -26,5 +26,5 @@ interface MainComponent {
     fun inject(fragment: SemesterFragment)
     fun inject(activity: MenuActivity)
     fun inject(fragment: HomeFragment)
-    fun inject(fragment: GrandesAbsenceActivity)
+    fun inject(fragment: GradesAbsenceActivity)
 }
