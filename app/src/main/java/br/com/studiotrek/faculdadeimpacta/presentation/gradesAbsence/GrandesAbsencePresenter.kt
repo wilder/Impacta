@@ -1,5 +1,6 @@
 package br.com.studiotrek.faculdadeimpacta.presentation.gradesAbsence
 
+import android.util.Log
 import br.com.studiotrek.faculdadeimpacta.domain.repository.ImpactaApi
 import retrofit2.Retrofit
 import rx.android.schedulers.AndroidSchedulers
@@ -36,7 +37,7 @@ class GrandesAbsencePresenter @Inject constructor(
     }
 
     interface View {
-        fun successRequest(classGradesAbsence: List<GradesAbsenceResponse>)
+        fun successRequest(classGradesAbsence: GradesAbsenceResponse)
         fun badRequest(errorMessage: String)
     }
 

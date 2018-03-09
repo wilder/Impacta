@@ -30,7 +30,7 @@ interface ImpactaApi {
     fun getSemesterGrades(@Body cookie: CookieDTO): Observable<Response<SemesterResponse>>
 
     @POST("nota-falta")
-    fun getGradesAbsence(@Body gradesAbsenceRequest: GradesAbsenceRequest) : Observable<Response<List<GradesAbsenceResponse>>>
+    fun getGradesAbsence(@Body gradesAbsenceRequest: GradesAbsenceRequest) : Observable<Response<GradesAbsenceResponse>>
 
     @POST("aula-dia")
     fun getHome(@Body cookie: CookieDTO) : Observable<Response<HomeScheduleResponse>>
