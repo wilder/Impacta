@@ -41,19 +41,18 @@ class GrandesAbsenceActivity : AppCompatActivity(), GrandesAbsencePresenter.View
         (application as App).component.inject(this)
         presenter.bindView(this)
 
-        val bundle = getIntent().getExtras()
+        val bundle = intent.extras
         if (bundle != null) {
-            val gradesAbsenceRequest = GradesAbsenceRequest(PreferencesManager(this).cookie.cookie, bundle.getString("urlSemestre"))
-            doRequest(gradesAbsenceRequest)
+            getGradesAndAbsences(PreferencesManager(this).cookie.cookie, bundle.getString("urlSemestre"))
         }
     }
 
-    fun doRequest(gradesAbsenceRequest: GradesAbsenceRequest) {
-        presenter.getGrandesAbsence(gradesAbsenceRequest)
+    private fun getGradesAndAbsences(cookie: String, semester: String) {
+        presenter.getGrandesAbsence(cookie, semester)
     }
 
-    override fun successRequest(classGradesAbsence: List<GradesAbsenceResponse>) {
-        Log.d(TAG, "GrandesAbsence: "+ classGradesAbsence.size)
+    override fun successRequest(classGradesAbsence: GradesAbsenceResponse) {
+        Log.d(TAG, "GrandesAbsence: "+ classGradesAbsence.toString())
     }
 
     override fun badRequest(errorMessage: String) {

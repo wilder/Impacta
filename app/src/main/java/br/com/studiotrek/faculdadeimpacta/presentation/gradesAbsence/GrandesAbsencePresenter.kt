@@ -18,9 +18,9 @@ class GrandesAbsencePresenter @Inject constructor(
         this.view = view
     }
 
-    fun getGrandesAbsence(gradesAbsenceRequest: GradesAbsenceRequest) {
+    fun getGrandesAbsence(cookie: String, semester: String) {
         val api = retrofit.create(ImpactaApi::class.java)
-        api.getGradesAbsence(gradesAbsenceRequest)
+        api.getGradesAbsence(GradesAbsenceRequest(cookie, semester))
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
