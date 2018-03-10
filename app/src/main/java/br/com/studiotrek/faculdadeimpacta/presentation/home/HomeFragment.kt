@@ -11,7 +11,6 @@ import br.com.studiotrek.faculdadeimpacta.App
 import br.com.studiotrek.faculdadeimpacta.R
 import br.com.studiotrek.faculdadeimpacta.domain.entity.CookieDTO
 import br.com.studiotrek.faculdadeimpacta.utils.PreferencesManager
-import io.github.luizgrp.sectionedrecyclerviewadapter.SectionedRecyclerViewAdapter
 import kotlinx.android.synthetic.main.fragment_home.*
 import javax.inject.Inject
 
@@ -66,7 +65,7 @@ class HomeFragment : Fragment(), HomePresenter.View {
 
     override fun setNoClassesTodayMessage() {
         tv_homeheader_course.visibility = View.INVISIBLE
-        ivHomeSmile.visibility = View.VISIBLE
+        ivHomeNoClasses.visibility = View.VISIBLE
         tvHomeWithoutClass.visibility = View.VISIBLE
         //TODO: display no classes layout
     }
