@@ -53,6 +53,7 @@ class MenuActivity : AppCompatActivity(), MenuPresenter.View {
         adapter.addFragment(CardAccessFragment.newInstance())
 
         viewPager.adapter = adapter
+        viewPager.offscreenPageLimit = adapter.count
     }
 
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
