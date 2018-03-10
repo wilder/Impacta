@@ -4,7 +4,7 @@
 
     <item
         android:id="@+id/navigation_home"
-        android:icon="@drawable/ic_home_white"
+        android:icon="@drawable/ic_home"
         android:title="@string/home"
         app:showAsAction="always|withText" />
 
@@ -16,13 +16,13 @@
 
     <item
         android:id="@+id/navigation_schedule"
-        android:icon="@drawable/ic_schedule_white"
+        android:icon="@drawable/calendar_range"
         android:title="@string/schedule"
         app:showAsAction="always|withText" />
 
     <item
         android:id="@+id/navigation_card"
-        android:icon="@drawable/ic_card"
+        android:icon="@drawable/ic_card_id"
         android:title="@string/card"
         app:showAsAction="always|withText" />
 
