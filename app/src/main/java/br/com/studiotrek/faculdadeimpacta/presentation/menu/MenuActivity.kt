@@ -11,6 +11,7 @@ import br.com.studiotrek.faculdadeimpacta.presentation.cardAccess.CardAccessFrag
 import br.com.studiotrek.faculdadeimpacta.presentation.home.HomeFragment
 import br.com.studiotrek.faculdadeimpacta.presentation.schedule.ScheduleFragment
 import br.com.studiotrek.faculdadeimpacta.presentation.semesterGrades.SemesterFragment
+import br.com.studiotrek.faculdadeimpacta.utils.BottonNavigationViewHelper
 import kotlinx.android.synthetic.main.activity_menu.*
 import javax.inject.Inject
 
@@ -41,6 +42,7 @@ class MenuActivity : AppCompatActivity(), MenuPresenter.View {
         presenter.bindView(this)
         viewPagerAdapter = ViewPagerAdapter(supportFragmentManager)
         setupViewPager(viewpager)
+        BottonNavigationViewHelper.removeShiftMode(navigation)
         navigation.itemIconTintList = null
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
         viewpager.addOnPageChangeListener(mOnPageChangeListener)

@@ -1,24 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
         android:id="@+id/navigation_home"
         android:icon="@drawable/ic_home_white"
-        android:title="@string/home" />
+        android:title="@string/home"
+        app:showAsAction="always|withText" />
 
     <item
         android:id="@+id/navigation_grades"
         android:icon="@drawable/ic_grade_white"
-        android:title="@string/grades" />
+        android:title="@string/grades"
+        app:showAsAction="always|withText" />
 
     <item
         android:id="@+id/navigation_schedule"
         android:icon="@drawable/ic_schedule_white"
-        android:title="@string/schedule" />
+        android:title="@string/schedule"
+        app:showAsAction="always|withText" />
 
     <item
         android:id="@+id/navigation_card"
         android:icon="@drawable/ic_card"
-        android:title="@string/card" />
+        android:title="@string/card"
+        app:showAsAction="always|withText" />
 
 </menu>
