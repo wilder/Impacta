@@ -65,7 +65,9 @@ class HomeFragment : Fragment(), HomePresenter.View {
     }
 
     override fun setNoClassesTodayMessage() {
-        tv_homeheader_course.text = "Hoje você não tem aula!"
+        tv_homeheader_course.visibility = View.INVISIBLE
+        ivHomeSmile.visibility = View.VISIBLE
+        tvHomeWithoutClass.visibility = View.VISIBLE
         //TODO: display no classes layout
     }
 

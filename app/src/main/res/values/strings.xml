@@ -17,4 +17,5 @@
     <string name="home_course">Hoje suas aulas em curso são:</string>
     <string name="title_semester">Semestre</string>
     <string name="view">Visualizar</string>
+    <string name="without_class">Você não tem aulas hoje</string>
 </resources>
