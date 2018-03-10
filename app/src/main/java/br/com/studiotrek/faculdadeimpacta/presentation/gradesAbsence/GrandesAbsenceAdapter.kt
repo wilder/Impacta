@@ -11,7 +11,7 @@ import kotlinx.android.synthetic.main.grades_absence_item.view.*
  * Created by kleber on 06/03/2018.
  */
 
-class GrandesAbsenceAdapter(var classGradesAbsence: GradesAbsenceResponse) :  RecyclerView.Adapter<GrandesAbsenceAdapter.ViewHolder>() {
+class GrandesAbsenceAdapter(var classGradesAbsence: GradesAbsenceResponse) : RecyclerView.Adapter<GrandesAbsenceAdapter.ViewHolder>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ViewHolder {

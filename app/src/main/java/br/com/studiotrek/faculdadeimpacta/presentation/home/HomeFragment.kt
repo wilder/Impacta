@@ -48,13 +48,10 @@ class HomeFragment : Fragment(), HomePresenter.View {
     }
 
     private fun setupList(classHome: HomeScheduleResponse) {
-        val sectionAdapter = SectionedRecyclerViewAdapter()
-
-        sectionAdapter.addSection(HomeSection(classHome))
-
         rvHome.layoutManager = LinearLayoutManager(activity) as RecyclerView.LayoutManager?
-        rvHome.adapter = sectionAdapter
+        rvHome.adapter = HomeRecyclerViewAdapter(classHome)
     }
+
 
     fun doRequest(cookie: CookieDTO) {
         presenter.getHome(cookie)
