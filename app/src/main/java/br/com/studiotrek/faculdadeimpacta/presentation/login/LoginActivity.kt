@@ -31,6 +31,14 @@ class LoginActivity : AppCompatActivity(), LoginPresenter.View {
     private fun init() {
         (application as App).component.inject(this)
         presenter.bindView(this)
+
+        val user = PreferencesManager(this).user
+        setSavedCredentials(user)
+    }
+
+    private fun setSavedCredentials(student: Student?) {
+        etRa.setText(student?.ra)
+        etPassword.setText(student?.password)
     }
 
     fun doLogin(view: View) {

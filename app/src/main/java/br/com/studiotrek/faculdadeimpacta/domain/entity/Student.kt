@@ -5,9 +5,9 @@ package br.com.studiotrek.faculdadeimpacta.domain.entity
  */
 
 data class Student (
-        private var username: String?,
-        private var couse: String?,
-        private val ra: String,
-        private var email: String?,
-        private val password: String
+        var username: String?,
+        var couse: String?,
+        val ra: String?,
+        var email: String?,
+        val password: String
 )
