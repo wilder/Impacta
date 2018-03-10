@@ -36,7 +36,7 @@ class SemesterAdapter(var classSemester: SemesterResponse) : RecyclerView.Adapte
         fun bind(semesterDetailModel: SemesterDetailModel) {
             with (semesterDetailModel) {
 
-                itemView.bnView.setOnClickListener {
+                itemView.cvSemester.setOnClickListener {
                     val intent = Intent(itemView.context, GradesAbsenceActivity::class.java)
                     val bundle = Bundle()
                     bundle.putString("urlSemestre", semesterDetailModel.urlBoletim)
