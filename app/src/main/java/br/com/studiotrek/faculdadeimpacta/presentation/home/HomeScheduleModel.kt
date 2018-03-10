@@ -7,5 +7,5 @@ import com.google.gson.annotations.SerializedName
 /**
  * Created by kleber on 02/03/2018.
  */
-class HomeScheduleModel (@SerializedName("dia") @Expose var day: String,
-                         @SerializedName("horarioDetalhado") @Expose var scheduleDetail: List<ScheduleDetailModel>)
+class HomeScheduleModel (@SerializedName("dia") @Expose var day: String?,
+                         @SerializedName("horarioDetalhado") @Expose var scheduleDetail: List<ScheduleDetailModel>?)

@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -58,8 +57,19 @@ class HomeFragment : Fragment(), HomePresenter.View {
         presenter.getHome(cookie)
     }
 
-    override fun successRequest(classSchedule: HomeScheduleResponse) {
-        Log.d(TAG, "home: " + classSchedule.name)
+    override fun setUserNameAndCourse(userName: String, course: String) {
+        tv_homeheader_course.text = "Hoje suas aulas no $course são:"
+        tv_homeheader_name.text = "Olá, $userName"
+        pbHome.visibility = View.INVISIBLE
+        //TODO: update user sharedPreferences
+    }
+
+    override fun setNoClassesTodayMessage() {
+        tv_homeheader_course.text = "Hoje você não tem aula!"
+        //TODO: display no classes layout
+    }
+
+    override fun displayClasses(classSchedule: HomeScheduleResponse) {
         pbHome.visibility = View.INVISIBLE
         setupList(classSchedule)
     }

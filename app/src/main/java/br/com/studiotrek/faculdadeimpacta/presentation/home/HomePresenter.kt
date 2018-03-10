@@ -31,7 +31,17 @@ class HomePresenter @Inject constructor(
                     } else if (it.code() == 500) {
                         view.badRequest("Não foi possível buscar as aulas.\nTente novamente mais tarde.")
                     } else {
-                        view.successRequest(it.body())
+                        val classSchedule = it.body()
+
+                        view.setUserNameAndCourse(classSchedule.name, classSchedule.course)
+
+                        if (classSchedule.homeScheduleModel == null
+                                || classSchedule.homeScheduleModel.scheduleDetail == null
+                                || classSchedule.homeScheduleModel.scheduleDetail?.size == 0) {
+                            view.setNoClassesTodayMessage()
+                        } else {
+                            view.displayClasses(it.body())
+                        }
                     }
                 },{
                     Log.e("HomePresenter: ",it.message)
@@ -40,7 +50,9 @@ class HomePresenter @Inject constructor(
     }
 
     interface View {
-        fun successRequest(classSchedule: HomeScheduleResponse)
+        fun setUserNameAndCourse(userName: String, course: String)
+        fun setNoClassesTodayMessage()
+        fun displayClasses(classSchedule: HomeScheduleResponse)
         fun badRequest(errorMessage: String)
     }
 }
