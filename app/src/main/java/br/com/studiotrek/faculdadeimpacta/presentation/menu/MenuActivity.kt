@@ -1,6 +1,5 @@
 package br.com.studiotrek.faculdadeimpacta.presentation.menu
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v4.view.ViewPager
@@ -16,7 +15,6 @@ import kotlinx.android.synthetic.main.activity_menu.*
 import javax.inject.Inject
 
 
-@SuppressLint("Registered")
 /**
  * Created by kleber on 02/03/2018.
  */
@@ -31,7 +29,11 @@ class MenuActivity : AppCompatActivity(), MenuPresenter.View {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menu)
         init()
+    }
 
+    override fun onResume() {
+        super.onResume()
+        viewpager.addOnPageChangeListener(mOnPageChangeListener)
     }
 
     private fun init() {
@@ -41,6 +43,7 @@ class MenuActivity : AppCompatActivity(), MenuPresenter.View {
         setupViewPager(viewpager)
         navigation.itemIconTintList = null
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
+        viewpager.addOnPageChangeListener(mOnPageChangeListener)
 
     }
 
@@ -54,7 +57,24 @@ class MenuActivity : AppCompatActivity(), MenuPresenter.View {
 
         viewPager.adapter = adapter
         viewPager.offscreenPageLimit = adapter.count
+
+
     }
+
+    private val mOnPageChangeListener = (object : ViewPager.OnPageChangeListener {
+
+        override fun onPageScrollStateChanged(state: Int) {
+        }
+
+        override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
+
+        }
+        override fun onPageSelected(position: Int) {
+            navigation.selectedItemId = navigation.menu.getItem(position).itemId
+        }
+
+    })
+
 
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
