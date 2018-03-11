@@ -30,4 +30,6 @@ class PreferencesManager (context: Context) {
         get() = prefs.getBoolean(INTRO_KEY, false)
         set(value) = prefs.edit().putBoolean(INTRO_KEY, value).apply()
 
+    fun isUserSet() =  this.user != null && this.user!!.ra != null && !this.user!!.ra!!.isEmpty() && !this.user!!.password.isBlank()
+
 }

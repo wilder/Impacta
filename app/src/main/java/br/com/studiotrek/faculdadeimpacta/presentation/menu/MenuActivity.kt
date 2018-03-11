@@ -19,6 +19,11 @@ import br.com.studiotrek.faculdadeimpacta.presentation.semesterGrades.SemesterFr
 import br.com.studiotrek.faculdadeimpacta.utils.BottonNavigationViewHelper
 import kotlinx.android.synthetic.main.activity_menu.*
 import javax.inject.Inject
+import br.com.studiotrek.faculdadeimpacta.presentation.MainActivity
+import hotchemi.android.rate.OnClickButtonListener
+import hotchemi.android.rate.AppRate
+
+
 
 
 /**
@@ -45,6 +50,7 @@ class MenuActivity : AppCompatActivity(), MenuPresenter.View {
     private fun init() {
         (application as App).component.inject(this)
         presenter.bindView(this)
+        trackUsageForRateDialog()
         viewPagerAdapter = ViewPagerAdapter(supportFragmentManager)
         setupViewPager(viewpager)
         BottonNavigationViewHelper.removeShiftMode(navigation)
@@ -52,6 +58,17 @@ class MenuActivity : AppCompatActivity(), MenuPresenter.View {
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
         viewpager.addOnPageChangeListener(mOnPageChangeListener)
 
+    }
+
+    private fun trackUsageForRateDialog() {
+        AppRate.with(this)
+                .setInstallDays(3)
+                .setLaunchTimes(6)
+                .setRemindInterval(3)
+                .setShowLaterButton(true)
+                .setDebug(false)
+                .monitor()
+        AppRate.showRateDialogIfMeetsConditions(this)
     }
 
     private fun setupViewPager(viewPager: ViewPager) {
