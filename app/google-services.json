@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "606170999911",
+    "firebase_url": "https://impacta-44e94.firebaseio.com",
+    "project_id": "impacta-44e94",
+    "storage_bucket": "impacta-44e94.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:606170999911:android:4331aadce4973c52",
+        "android_client_info": {
+          "package_name": "br.com.studiotrek.faculdadeimpacta"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "606170999911-c7onao8ds22ukddvqe4g1f051rstr496.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyApGnLFFuVyd79SdIxHeNlImlg_qPklKuU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
