@@ -1,6 +1,7 @@
 package br.com.studiotrek.faculdadeimpacta.presentation.menu
 
 import android.content.DialogInterface
+import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v4.view.ViewPager
@@ -20,16 +21,19 @@ import br.com.studiotrek.faculdadeimpacta.utils.BottonNavigationViewHelper
 import kotlinx.android.synthetic.main.activity_menu.*
 import javax.inject.Inject
 import br.com.studiotrek.faculdadeimpacta.presentation.MainActivity
+import com.google.android.gms.ads.AdListener
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.InterstitialAd
+import com.google.android.gms.ads.MobileAds
 import hotchemi.android.rate.OnClickButtonListener
 import hotchemi.android.rate.AppRate
-
-
-
 
 /**
  * Created by kleber on 02/03/2018.
  */
 class MenuActivity : AppCompatActivity(), MenuPresenter.View {
+
+    private lateinit var mInterstitialAd: InterstitialAd
 
     @Inject
     lateinit var presenter: MenuPresenter
@@ -57,7 +61,29 @@ class MenuActivity : AppCompatActivity(), MenuPresenter.View {
         navigation.itemIconTintList = null
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
         viewpager.addOnPageChangeListener(mOnPageChangeListener)
+        showAdMob()
+    }
 
+    private fun showAdMob() {
+        MobileAds.initialize(this,
+                "ca-app-pub-7595823355776731~5949095136")
+
+        mInterstitialAd = InterstitialAd(this)
+        mInterstitialAd.adUnitId = "ca-app-pub-7595823355776731/5906176184"
+        mInterstitialAd.loadAd(AdRequest.Builder().build())
+
+        mInterstitialAd.adListener = object: AdListener() {
+            override fun onAdLoaded() {
+                // Code to be executed when an ad finishes loading.
+                if (mInterstitialAd.isLoaded) {
+                    mInterstitialAd.show()
+                }
+            }
+
+            override fun onAdClosed() {
+                // Code to be executed when when the interstitial ad is closed.
+            }
+        }
     }
 
     private fun trackUsageForRateDialog() {
@@ -98,7 +124,6 @@ class MenuActivity : AppCompatActivity(), MenuPresenter.View {
         }
 
     })
-
 
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
