@@ -11,11 +11,12 @@
     <string name="dia">Day</string>
     <string name="home">Home</string>
     <string name="grades">Notas</string>
-    <string name="schedule">Horario</string>
+    <string name="schedule">Horário</string>
     <string name="card">Cartão</string>
     <string name="home_name">Olá, aluno</string>
     <string name="home_course">Hoje suas aulas em curso são:</string>
     <string name="title_semester">Semestre</string>
     <string name="view">Visualizar</string>
     <string name="without_class">Você não tem aulas hoje</string>
+    <string name="about">Sobre</string>
 </resources>

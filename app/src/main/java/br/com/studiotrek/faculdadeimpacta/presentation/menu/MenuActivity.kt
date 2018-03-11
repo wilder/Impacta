@@ -1,13 +1,18 @@
 package br.com.studiotrek.faculdadeimpacta.presentation.menu
 
+import android.content.DialogInterface
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v4.view.ViewPager
+import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
+import android.view.ContextMenu
+import android.view.Menu
+import android.view.MenuItem
+import android.view.View
 import br.com.studiotrek.faculdadeimpacta.App
 import br.com.studiotrek.faculdadeimpacta.R
 import br.com.studiotrek.faculdadeimpacta.presentation.base.ViewPagerAdapter
-import br.com.studiotrek.faculdadeimpacta.presentation.cardAccess.CardAccessFragment
 import br.com.studiotrek.faculdadeimpacta.presentation.home.HomeFragment
 import br.com.studiotrek.faculdadeimpacta.presentation.schedule.ScheduleFragment
 import br.com.studiotrek.faculdadeimpacta.presentation.semesterGrades.SemesterFragment
@@ -55,7 +60,7 @@ class MenuActivity : AppCompatActivity(), MenuPresenter.View {
         adapter.addFragment(HomeFragment.newInstance())
         adapter.addFragment(SemesterFragment.newInstance())
         adapter.addFragment(ScheduleFragment.newInstance())
-        adapter.addFragment(CardAccessFragment.newInstance())
+//        adapter.addFragment(CardAccessFragment.newInstance())
 
         viewPager.adapter = adapter
         viewPager.offscreenPageLimit = adapter.count
@@ -92,12 +97,41 @@ class MenuActivity : AppCompatActivity(), MenuPresenter.View {
                 viewpager.setCurrentItem(2,true)
                 return@OnNavigationItemSelectedListener true
             }
-            R.id.navigation_card -> {
-                viewpager.setCurrentItem(3,true)
-                return@OnNavigationItemSelectedListener true
-            }
+//            R.id.navigation_card -> {
+//                viewpager.setCurrentItem(3,true)
+//                return@OnNavigationItemSelectedListener true
+//            }
         }
         false
     }
 
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        super.onCreateOptionsMenu(menu)
+        menuInflater.inflate(R.menu.about_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        return when (item?.itemId) {
+            R.id.about -> {
+                displayAboutDialog()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
+    private fun displayAboutDialog() {
+        val dialogBuilder = AlertDialog.Builder(this)
+        dialogBuilder.setTitle("Sobre")
+        val inflater = this.layoutInflater
+        val dialogView = inflater.inflate(R.layout.about_dialog, null)
+        dialogBuilder.setView(dialogView)
+                .setPositiveButton("OK", { dialog, whichButton ->
+                    dialog.cancel()
+                })
+        val dialog = dialogBuilder.create()
+        dialog.show()
+    }
 }
