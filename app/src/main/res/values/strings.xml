@@ -19,4 +19,6 @@
     <string name="view">Visualizar</string>
     <string name="without_class">Você não tem aulas hoje</string>
     <string name="about">Sobre</string>
+    <string name="impossible_game">Impossible Game</string>
+    <string name="retry_button_text">Retry</string>
 </resources>
