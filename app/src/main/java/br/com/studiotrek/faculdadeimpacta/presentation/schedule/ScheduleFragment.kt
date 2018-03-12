@@ -13,6 +13,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import br.com.studiotrek.faculdadeimpacta.domain.entity.CookieDTO
+import br.com.studiotrek.faculdadeimpacta.domain.entity.schedule.ScheduleResponse
 import io.github.luizgrp.sectionedrecyclerviewadapter.SectionedRecyclerViewAdapter
 import kotlinx.android.synthetic.main.fragment_schedule.*
 

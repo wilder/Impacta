@@ -5,6 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import br.com.studiotrek.faculdadeimpacta.R
+import br.com.studiotrek.faculdadeimpacta.domain.entity.gradesAbsence.GradesAbsenceModel
+import br.com.studiotrek.faculdadeimpacta.domain.entity.gradesAbsence.GradesAbsenceResponse
 import kotlinx.android.synthetic.main.grades_absence_item.view.*
 
 /**

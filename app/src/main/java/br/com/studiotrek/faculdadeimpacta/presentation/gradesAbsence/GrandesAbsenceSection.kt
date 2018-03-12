@@ -3,6 +3,8 @@ package br.com.studiotrek.faculdadeimpacta.presentation.gradesAbsence
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import br.com.studiotrek.faculdadeimpacta.R
+import br.com.studiotrek.faculdadeimpacta.domain.entity.gradesAbsence.GradesAbsenceModel
+import br.com.studiotrek.faculdadeimpacta.domain.entity.gradesAbsence.GradesAbsenceResponse
 import io.github.luizgrp.sectionedrecyclerviewadapter.StatelessSection
 import kotlinx.android.synthetic.main.grades_absence_item.view.*
 

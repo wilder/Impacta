@@ -1,5 +1,6 @@
 package br.com.studiotrek.faculdadeimpacta.presentation.login
 
+import br.com.studiotrek.faculdadeimpacta.domain.entity.login.LoginResponse
 import br.com.studiotrek.faculdadeimpacta.domain.repository.ImpactaApi
 import retrofit2.Retrofit
 import rx.android.schedulers.AndroidSchedulers

@@ -7,6 +7,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import br.com.studiotrek.faculdadeimpacta.R
+import br.com.studiotrek.faculdadeimpacta.domain.entity.semesterGrades.SemesterDetailModel
+import br.com.studiotrek.faculdadeimpacta.domain.entity.semesterGrades.SemesterResponse
 import br.com.studiotrek.faculdadeimpacta.presentation.gradesAbsence.GradesAbsenceActivity
 import kotlinx.android.synthetic.main.semester_item.view.*
 

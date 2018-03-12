@@ -11,13 +11,13 @@ android {
         applicationId "br.com.studiotrek.faculdadeimpacta"
         minSdkVersion 16
         targetSdkVersion 27
-        versionCode 1
-        versionName "1.0"
+        versionCode 3
+        versionName "2.1"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
         release {
-            minifyEnabled true
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -45,8 +45,6 @@ dependencies {
     compile 'com.squareup.retrofit2:converter-scalars:2.1.0'
 
     compile 'com.squareup.okhttp3:logging-interceptor:3.3.1'
-    compile 'com.google.zxing:core:3.3.0'
-    compile 'com.journeyapps:zxing-android-embedded:3.5.0@aar'
 
     compile 'com.jakewharton.rxbinding:rxbinding-kotlin:1.0.0'
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"

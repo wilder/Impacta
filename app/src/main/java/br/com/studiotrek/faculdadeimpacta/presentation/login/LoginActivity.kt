@@ -10,6 +10,7 @@ import br.com.studiotrek.faculdadeimpacta.App
 import br.com.studiotrek.faculdadeimpacta.R
 import br.com.studiotrek.faculdadeimpacta.domain.entity.CookieDTO
 import br.com.studiotrek.faculdadeimpacta.domain.entity.Student
+import br.com.studiotrek.faculdadeimpacta.domain.entity.login.LoginResponse
 import br.com.studiotrek.faculdadeimpacta.presentation.menu.MenuActivity
 import br.com.studiotrek.faculdadeimpacta.utils.Analytics
 import br.com.studiotrek.faculdadeimpacta.utils.PreferencesManager

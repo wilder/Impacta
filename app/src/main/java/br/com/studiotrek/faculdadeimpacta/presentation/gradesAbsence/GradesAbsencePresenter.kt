@@ -1,6 +1,8 @@
 package br.com.studiotrek.faculdadeimpacta.presentation.gradesAbsence
 
 import android.util.Log
+import br.com.studiotrek.faculdadeimpacta.domain.entity.gradesAbsence.GradesAbsenceRequest
+import br.com.studiotrek.faculdadeimpacta.domain.entity.gradesAbsence.GradesAbsenceResponse
 import br.com.studiotrek.faculdadeimpacta.domain.repository.ImpactaApi
 import retrofit2.Retrofit
 import rx.android.schedulers.AndroidSchedulers

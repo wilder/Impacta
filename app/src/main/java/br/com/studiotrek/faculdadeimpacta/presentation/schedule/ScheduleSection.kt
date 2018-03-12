@@ -3,6 +3,8 @@ package br.com.studiotrek.faculdadeimpacta.presentation.schedule
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import br.com.studiotrek.faculdadeimpacta.R
+import br.com.studiotrek.faculdadeimpacta.domain.entity.schedule.ScheduleDetailModel
+import br.com.studiotrek.faculdadeimpacta.domain.entity.schedule.ScheduleResponse
 import io.github.luizgrp.sectionedrecyclerviewadapter.StatelessSection
 import kotlinx.android.synthetic.main.schedule_header.view.*
 import kotlinx.android.synthetic.main.schedule_item.view.*

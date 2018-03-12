@@ -8,12 +8,12 @@ import android.util.Log
 import android.view.View
 import br.com.studiotrek.faculdadeimpacta.App
 import br.com.studiotrek.faculdadeimpacta.R
+import br.com.studiotrek.faculdadeimpacta.domain.entity.gradesAbsence.GradesAbsenceResponse
 import br.com.studiotrek.faculdadeimpacta.utils.Analytics
 import br.com.studiotrek.faculdadeimpacta.utils.PreferencesManager
 import com.google.firebase.analytics.FirebaseAnalytics
 import io.github.luizgrp.sectionedrecyclerviewadapter.SectionedRecyclerViewAdapter
 import kotlinx.android.synthetic.main.activity_grades_absence.*
-import kotlinx.android.synthetic.main.grades_absence_item.*
 import javax.inject.Inject
 
 /**

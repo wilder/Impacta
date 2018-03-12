@@ -5,8 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import br.com.studiotrek.faculdadeimpacta.R
-import br.com.studiotrek.faculdadeimpacta.presentation.gradesAbsence.GrandesAbsenceAdapter
-import br.com.studiotrek.faculdadeimpacta.presentation.schedule.ScheduleDetailModel
+import br.com.studiotrek.faculdadeimpacta.domain.entity.home.HomeScheduleResponse
+import br.com.studiotrek.faculdadeimpacta.domain.entity.schedule.ScheduleDetailModel
 import kotlinx.android.synthetic.main.schedule_item.view.*
 
 /**
