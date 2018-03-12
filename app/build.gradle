@@ -66,6 +66,7 @@ dependencies {
     compile 'com.github.hotchemi:android-rate:1.0.1'
 
 }
+
 repositories {
     mavenCentral()
 }
