@@ -21,10 +21,13 @@ import br.com.studiotrek.faculdadeimpacta.utils.BottonNavigationViewHelper
 import kotlinx.android.synthetic.main.activity_menu.*
 import javax.inject.Inject
 import br.com.studiotrek.faculdadeimpacta.presentation.MainActivity
+import br.com.studiotrek.faculdadeimpacta.utils.Analytics
+import br.com.studiotrek.faculdadeimpacta.utils.PreferencesManager
 import com.google.android.gms.ads.AdListener
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.InterstitialAd
 import com.google.android.gms.ads.MobileAds
+import com.google.firebase.analytics.FirebaseAnalytics
 import hotchemi.android.rate.OnClickButtonListener
 import hotchemi.android.rate.AppRate
 
@@ -34,6 +37,7 @@ import hotchemi.android.rate.AppRate
 class MenuActivity : AppCompatActivity(), MenuPresenter.View {
 
     private lateinit var mInterstitialAd: InterstitialAd
+    private lateinit var firebaseAnalytics: FirebaseAnalytics
 
     @Inject
     lateinit var presenter: MenuPresenter
@@ -54,7 +58,10 @@ class MenuActivity : AppCompatActivity(), MenuPresenter.View {
     private fun init() {
         (application as App).component.inject(this)
         presenter.bindView(this)
+
         trackUsageForRateDialog()
+        firebaseAnalytics = FirebaseAnalytics.getInstance(this)
+
         viewPagerAdapter = ViewPagerAdapter(supportFragmentManager)
         setupViewPager(viewpager)
         BottonNavigationViewHelper.removeShiftMode(navigation)
@@ -157,6 +164,7 @@ class MenuActivity : AppCompatActivity(), MenuPresenter.View {
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         return when (item?.itemId) {
             R.id.about -> {
+                Analytics.logVisit(firebaseAnalytics, PreferencesManager(this).user?.ra!!, "about_dialog")
                 displayAboutDialog()
                 true
             }

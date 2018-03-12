@@ -8,7 +8,9 @@ import android.util.Log
 import android.view.View
 import br.com.studiotrek.faculdadeimpacta.App
 import br.com.studiotrek.faculdadeimpacta.R
+import br.com.studiotrek.faculdadeimpacta.utils.Analytics
 import br.com.studiotrek.faculdadeimpacta.utils.PreferencesManager
+import com.google.firebase.analytics.FirebaseAnalytics
 import io.github.luizgrp.sectionedrecyclerviewadapter.SectionedRecyclerViewAdapter
 import kotlinx.android.synthetic.main.activity_grades_absence.*
 import kotlinx.android.synthetic.main.grades_absence_item.*
@@ -22,6 +24,8 @@ class GradesAbsenceActivity : AppCompatActivity(), GradesAbsencePresenter.View {
     @Inject
     lateinit var presenter: GradesAbsencePresenter
     private val TAG: String = "GradesAbsenceActivity"
+    private lateinit var firebaseAnalytics: FirebaseAnalytics
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,8 +40,16 @@ class GradesAbsenceActivity : AppCompatActivity(), GradesAbsencePresenter.View {
         val bundle = intent.extras
         if (bundle != null) {
             pbGrandesAbsence.visibility = View.VISIBLE
-            getGradesAndAbsences(PreferencesManager(this).cookie.cookie, bundle.getString("urlSemestre"))
+
+            val semester = bundle.getString("urlSemestre")
+
+            getGradesAndAbsences(PreferencesManager(this).cookie.cookie, semester)
+            firebaseAnalytics = FirebaseAnalytics.getInstance(this)
+            Analytics.logVisit(firebaseAnalytics, PreferencesManager(this).user?.ra!!, "$TAG - $semester")
         }
+
+
+
     }
 
     private fun setupList(classAbsenceResponse: GradesAbsenceResponse) {
