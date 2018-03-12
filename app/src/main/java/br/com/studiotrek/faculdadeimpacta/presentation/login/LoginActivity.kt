@@ -49,7 +49,6 @@ class LoginActivity : AppCompatActivity(), LoginPresenter.View {
     fun doLogin(view: View) {
         pbLogin.visibility = View.VISIBLE
 
-
         if (etRa.text.toString().isBlank()) {
             etRa.error = getString(R.string.required_field)
             return
@@ -78,7 +77,7 @@ class LoginActivity : AppCompatActivity(), LoginPresenter.View {
         Analytics.logBadEvent(firebaseAnalytics, etRa.text.toString(), "badLogin - $errorMessage")
         Log.d(TAG, "Couldn't log user in")
         pbLogin.visibility = View.INVISIBLE
-        Toast.makeText(this, "Login invalido", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, "Tente novamente", Toast.LENGTH_SHORT).show()
     }
 
 }
