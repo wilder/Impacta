@@ -16,13 +16,13 @@ class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        if(PreferencesManager(this).isUserSet()) {
-            val intent = Intent(this, MenuActivity::class.java)
-            startActivity(intent)
-        } else {
+//        if(PreferencesManager(this).isUserSet()) {
+//            val intent = Intent(this, MenuActivity::class.java)
+//            startActivity(intent)
+//        } else {
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
-        }
+//        }
 
         finish()
     }
