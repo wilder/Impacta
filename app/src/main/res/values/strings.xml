@@ -21,4 +21,6 @@
     <string name="about">Sobre</string>
     <string name="impossible_game">Impossible Game</string>
     <string name="retry_button_text">Retry</string>
+    <string name="faculdade">Faculdade Impacta Tecnologia</string>
+    <string name="developers">Aplicativo não oficial desenvolvido por alunos</string>
 </resources>

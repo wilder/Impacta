@@ -15,6 +15,7 @@ import br.com.studiotrek.faculdadeimpacta.presentation.menu.MenuActivity
 import br.com.studiotrek.faculdadeimpacta.utils.Analytics
 import br.com.studiotrek.faculdadeimpacta.utils.PreferencesManager
 import com.google.firebase.analytics.FirebaseAnalytics
+import com.jakewharton.rxbinding.view.enabled
 import kotlinx.android.synthetic.main.activity_login.*
 import javax.inject.Inject
 
@@ -47,6 +48,7 @@ class LoginActivity : AppCompatActivity(), LoginPresenter.View {
     }
 
     fun doLogin(view: View) {
+        btnLogin.isClickable = false
         pbLogin.visibility = View.VISIBLE
 
         if (etRa.text.toString().isBlank()) {

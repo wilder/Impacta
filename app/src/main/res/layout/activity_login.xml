@@ -107,14 +107,14 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/tvFaculdade"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="16dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
-        android:text="Faculdade Impacta Tecnologia"
+        android:text="@string/faculdade"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="@android:color/white"
         app:layout_constraintBottom_toTopOf="@+id/cardView"
@@ -123,16 +123,16 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/tvDesenvolvedor"
         android:layout_width="0dp"
         android:layout_height="16dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="4dp"
-        android:text="Aplicativo não oficial desenvolvido por alunos"
+        android:text="@string/developers"
         android:textColor="#a6a6a6"
-        app:layout_constraintEnd_toEndOf="@+id/textView"
-        app:layout_constraintStart_toStartOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintEnd_toEndOf="@+id/tvFaculdade"
+        app:layout_constraintStart_toStartOf="@+id/tvFaculdade"
+        app:layout_constraintTop_toBottomOf="@+id/tvFaculdade" />
 
 </android.support.constraint.ConstraintLayout>
