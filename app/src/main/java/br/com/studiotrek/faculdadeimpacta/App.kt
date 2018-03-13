@@ -3,6 +3,7 @@ package br.com.studiotrek.faculdadeimpacta
 import android.app.Application
 import br.com.studiotrek.faculdadeimpacta.dagger.component.DaggerMainComponent
 import br.com.studiotrek.faculdadeimpacta.dagger.component.MainComponent
+import br.com.studiotrek.faculdadeimpacta.dagger.module.AppModule
 
 
 /**
@@ -21,6 +22,7 @@ class App : Application() {
     private fun initDagger() {
         component = DaggerMainComponent
                 .builder()
+                .appModule(AppModule(this))
                 .build()
     }
 }
