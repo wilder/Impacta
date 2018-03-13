@@ -70,6 +70,7 @@ class LoginActivity : AppCompatActivity(), LoginPresenter.View {
         PreferencesManager(this).cookie = CookieDTO(cookie.cookie)
         PreferencesManager(this).user = Student(null, null, etRa.text.toString(), null, etPassword.text.toString())
 
+        btnLogin.isClickable = true
         pbLogin.visibility = View.INVISIBLE
         startActivity(Intent(this@LoginActivity, MenuActivity::class.java))
         finish()
@@ -78,6 +79,7 @@ class LoginActivity : AppCompatActivity(), LoginPresenter.View {
     override fun badLogin(errorMessage: String) {
         Analytics.logBadEvent(firebaseAnalytics, etRa.text.toString(), "badLogin - $errorMessage")
         Log.d(TAG, "Couldn't log user in")
+        btnLogin.isClickable = true
         pbLogin.visibility = View.INVISIBLE
         Toast.makeText(this, "Tente novamente", Toast.LENGTH_SHORT).show()
     }
