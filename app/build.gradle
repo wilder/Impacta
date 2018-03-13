@@ -11,13 +11,13 @@ android {
         applicationId "br.com.studiotrek.faculdadeimpacta"
         minSdkVersion 16
         targetSdkVersion 27
-        versionCode 4
-        versionName "2.2"
+        versionCode 5
+        versionName "2.3"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
