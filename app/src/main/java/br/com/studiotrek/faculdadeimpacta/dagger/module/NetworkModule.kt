@@ -37,20 +37,7 @@ open class NetworkModule {
 
         val client = OkHttpClient.Builder()
         client.cache(cache)
-        
-        client.addInterceptor { chain ->
 
-            try {
-                chain.proceed(chain.request())
-            } catch (e: Exception) {
-                val offlineRequest = chain.request().newBuilder()
-                        .header("Cache-Control", "public, only-if-cached," +
-                                "max-stale=" + 60 * 60 * 6)
-                        .build()
-                chain.proceed(offlineRequest)
-            }
-
-        }
         return client.build()
     }
 
