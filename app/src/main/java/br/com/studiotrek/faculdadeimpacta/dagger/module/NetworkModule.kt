@@ -4,6 +4,7 @@ package br.com.studiotrek.faculdadeimpacta.dagger.module
  * Created by Wilder on 18/02/18.
  */
 import br.com.studiotrek.faculdadeimpacta.App
+import br.com.studiotrek.faculdadeimpacta.domain.repository.ImpactaApi
 import dagger.Module
 import dagger.Provides
 import okhttp3.Cache
@@ -51,6 +52,12 @@ open class NetworkModule {
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .baseUrl("https://impactaservice.herokuapp.com/")
                 .build()
+    }
+
+    @Provides
+    @Singleton
+    internal fun provideApiService(retrofit: Retrofit): ImpactaApi {
+        return retrofit.create(ImpactaApi::class.java)
     }
 
 }

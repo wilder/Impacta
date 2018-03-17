@@ -13,7 +13,7 @@ import javax.inject.Inject
  * Created by Kleber on 21/02/2018.
  */
 class SemesterPresenter @Inject constructor(
-        val retrofit: Retrofit) {
+        val api: ImpactaApi) {
 
     lateinit var view: View
 
@@ -22,7 +22,6 @@ class SemesterPresenter @Inject constructor(
     }
 
     fun getSemester(cookie : CookieDTO) {
-        val api = retrofit.create(ImpactaApi::class.java)
         api.getSemesterGrades(cookie)
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())

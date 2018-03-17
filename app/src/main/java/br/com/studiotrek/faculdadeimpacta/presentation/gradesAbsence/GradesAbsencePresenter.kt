@@ -13,7 +13,7 @@ import javax.inject.Inject
  * Created by kleber on 05/03/2018.
  */
 class GradesAbsencePresenter @Inject constructor(
-        val retrofit: Retrofit) {
+        val api: ImpactaApi) {
 
     lateinit var view: GradesAbsencePresenter.View
 
@@ -22,7 +22,6 @@ class GradesAbsencePresenter @Inject constructor(
     }
 
     fun getGrandesAbsence(cookie: String, semester: String) {
-        val api = retrofit.create(ImpactaApi::class.java)
         api.getGradesAbsence(GradesAbsenceRequest(cookie, semester))
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())

@@ -13,7 +13,7 @@ import javax.inject.Inject
  * Created by kleber on 02/03/2018.
  */
 class HomePresenter @Inject constructor(
-        val retrofit: Retrofit) {
+        val api: ImpactaApi) {
 
     lateinit var view: View
 
@@ -22,7 +22,6 @@ class HomePresenter @Inject constructor(
     }
 
     fun getHome(cookie: CookieDTO) {
-        val api = retrofit.create(ImpactaApi::class.java)
         api.getHome(cookie)
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())

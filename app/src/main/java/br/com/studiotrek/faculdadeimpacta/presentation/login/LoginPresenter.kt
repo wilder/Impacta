@@ -12,7 +12,7 @@ import javax.inject.Inject
  */
 
 class LoginPresenter @Inject constructor(
-        val retrofit: Retrofit) {
+        val api: ImpactaApi) {
 
     lateinit var view: View
 
@@ -22,7 +22,6 @@ class LoginPresenter @Inject constructor(
 
     fun login(ra: String, password: String) {
 
-        val api = retrofit.create(ImpactaApi::class.java)
         api.login(ra, password)
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
