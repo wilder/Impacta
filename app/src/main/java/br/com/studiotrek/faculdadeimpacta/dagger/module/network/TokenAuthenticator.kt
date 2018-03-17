@@ -1,6 +1,7 @@
 package br.com.studiotrek.faculdadeimpacta.dagger.module.network
 
 import br.com.studiotrek.faculdadeimpacta.App
+import br.com.studiotrek.faculdadeimpacta.domain.entity.CookieDTO
 import br.com.studiotrek.faculdadeimpacta.domain.entity.Student
 import br.com.studiotrek.faculdadeimpacta.utils.PreferencesManager
 import java.io.IOException
@@ -30,6 +31,9 @@ class TokenAuthenticator constructor(val apiServiceHolder: ApiServiceHolder, val
             val loginResponse = BlockingObservable.from(apiServiceHolder.get()!!.login(user?.ra!!, user.password)).first()
 
             if (loginResponse != null && loginResponse.isSuccessful) {
+
+                val cookie = loginResponse.body().cookie
+                PreferencesManager(app).cookie = CookieDTO(cookie)
                 // Add new header to rejected request and retry it
                 return response.request().newBuilder()
                         .header("token", loginResponse.body().cookie)
