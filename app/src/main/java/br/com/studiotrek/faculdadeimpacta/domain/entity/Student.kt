@@ -7,7 +7,7 @@ package br.com.studiotrek.faculdadeimpacta.domain.entity
 data class Student (
         var username: String?,
         var couse: String?,
-        val ra: String?,
+        val ra: String,
         var email: String?,
         val password: String
 )

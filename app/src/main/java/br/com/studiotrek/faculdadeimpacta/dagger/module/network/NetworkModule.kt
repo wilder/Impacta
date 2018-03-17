@@ -7,6 +7,7 @@ import br.com.studiotrek.faculdadeimpacta.App
 import br.com.studiotrek.faculdadeimpacta.domain.repository.ImpactaApi
 import dagger.Module
 import dagger.Provides
+import okhttp3.Authenticator
 import okhttp3.Cache
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -31,13 +32,24 @@ open class NetworkModule {
 
     @Provides
     @Singleton
-    fun provideOkhttpClient(cache: Cache): OkHttpClient {
+    fun provideApiServiceHolder() = ApiServiceHolder()
+
+    @Provides
+    @Singleton
+    fun provideAuthenticator(apiServiceHolder: ApiServiceHolder, application: App) : Authenticator{
+        return TokenAuthenticator(apiServiceHolder, application)
+    }
+
+    @Provides
+    @Singleton
+    fun provideOkhttpClient(cache: Cache, authenticator: Authenticator): OkHttpClient {
 
         val logging = HttpLoggingInterceptor()
         logging.level = HttpLoggingInterceptor.Level.BODY
 
         val client = OkHttpClient.Builder()
         client.cache(cache)
+        client.authenticator(authenticator)
 
         return client.build()
     }
@@ -56,8 +68,10 @@ open class NetworkModule {
 
     @Provides
     @Singleton
-    internal fun provideApiService(retrofit: Retrofit): ImpactaApi {
-        return retrofit.create(ImpactaApi::class.java)
+    internal fun provideApiService(retrofit: Retrofit, serviceHolder: ApiServiceHolder): ImpactaApi {
+        val api = retrofit.create(ImpactaApi::class.java)
+        serviceHolder.set(api)
+        return api
     }
 
 }
