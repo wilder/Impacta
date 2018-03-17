@@ -1,10 +1,11 @@
 package br.com.studiotrek.faculdadeimpacta.presentation.login
 
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.View
+import android.widget.EditText
 import android.widget.Toast
 import br.com.studiotrek.faculdadeimpacta.App
 import br.com.studiotrek.faculdadeimpacta.R
@@ -14,10 +15,11 @@ import br.com.studiotrek.faculdadeimpacta.domain.entity.login.LoginResponse
 import br.com.studiotrek.faculdadeimpacta.presentation.menu.MenuActivity
 import br.com.studiotrek.faculdadeimpacta.utils.Analytics
 import br.com.studiotrek.faculdadeimpacta.utils.PreferencesManager
+import br.com.studiotrek.faculdadeimpacta.utils.hideSoftKeyboard
 import com.google.firebase.analytics.FirebaseAnalytics
-import com.jakewharton.rxbinding.view.enabled
 import kotlinx.android.synthetic.main.activity_login.*
 import javax.inject.Inject
+
 
 class LoginActivity : AppCompatActivity(), LoginPresenter.View {
 
@@ -40,11 +42,21 @@ class LoginActivity : AppCompatActivity(), LoginPresenter.View {
 
         val user = PreferencesManager(this).user
         setSavedCredentials(user)
+        setupUI(loginParentLayout)
     }
 
     private fun setSavedCredentials(student: Student?) {
         etRa.setText(student?.ra)
         etPassword.setText(student?.password)
+    }
+
+    private fun setupUI(view: View) {
+        if (view !is EditText) {
+            view.setOnTouchListener { _, _ ->
+                this@LoginActivity.hideSoftKeyboard()
+                false
+            }
+        }
     }
 
     fun doLogin(view: View) {
@@ -81,7 +93,7 @@ class LoginActivity : AppCompatActivity(), LoginPresenter.View {
         Log.d(TAG, "Couldn't log user in")
         btnLogin.isClickable = true
         pbLogin.visibility = View.INVISIBLE
-        Toast.makeText(this, "Tente novamente", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, errorMessage, Toast.LENGTH_SHORT).show()
     }
 
 }
