@@ -22,7 +22,7 @@ class GradesAbsencePresenter @Inject constructor(
     }
 
     fun getGrandesAbsence(cookie: String, semester: String) {
-        api.getGradesAbsence(GradesAbsenceRequest(cookie, semester))
+        api.getGradesAbsence(cookie, GradesAbsenceRequest(semester))
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({

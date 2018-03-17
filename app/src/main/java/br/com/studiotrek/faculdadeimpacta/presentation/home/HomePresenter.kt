@@ -22,7 +22,7 @@ class HomePresenter @Inject constructor(
     }
 
     fun getHome(cookie: CookieDTO) {
-        api.getHome(cookie)
+        api.getHome(cookie.cookie)
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({

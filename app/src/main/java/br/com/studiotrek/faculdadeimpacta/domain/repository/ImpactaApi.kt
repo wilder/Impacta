@@ -23,15 +23,15 @@ interface ImpactaApi {
 
     //TODO: Change jsonobject to appropriate classes
     @POST("horario")
-    fun getClassesSchedule(@Body cookie: CookieDTO): Observable<Response<List<ScheduleResponse>>>
+    fun getClassesSchedule(@Header("token") token: String): Observable<Response<List<ScheduleResponse>>>
 
     //TODO: Change jsonobject to appropriate classes
     @POST("semestre-nota")
-    fun getSemesterGrades(@Body cookie: CookieDTO): Observable<Response<SemesterResponse>>
+    fun getSemesterGrades(@Header("token") token: String): Observable<Response<SemesterResponse>>
 
     @POST("nota-falta")
-    fun getGradesAbsence(@Body gradesAbsenceRequest: GradesAbsenceRequest) : Observable<Response<GradesAbsenceResponse>>
+    fun getGradesAbsence(@Header("token") token: String, @Body gradesAbsenceRequest: GradesAbsenceRequest) : Observable<Response<GradesAbsenceResponse>>
 
     @POST("aula-dia")
-    fun getHome(@Body cookie: CookieDTO) : Observable<Response<HomeScheduleResponse>>
+    fun getHome(@Header("token") token: String) : Observable<Response<HomeScheduleResponse>>
 }

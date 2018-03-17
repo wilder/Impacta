@@ -22,7 +22,7 @@ class SchedulePresenter @Inject constructor(
     }
 
     fun getSchedule(cookie : CookieDTO) {
-        api.getClassesSchedule(cookie)
+        api.getClassesSchedule(cookie.cookie)
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({

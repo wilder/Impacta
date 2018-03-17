@@ -22,7 +22,7 @@ class SemesterPresenter @Inject constructor(
     }
 
     fun getSemester(cookie : CookieDTO) {
-        api.getSemesterGrades(cookie)
+        api.getSemesterGrades(cookie.cookie)
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
