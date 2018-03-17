@@ -50,7 +50,7 @@ open class NetworkModule {
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(okHttpClient)
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
-                .baseUrl("https://impactaservice.herokuapp.com/")
+                .baseUrl("https://impactaservicetest.herokuapp.com")
                 .build()
     }
 
