@@ -1,4 +1,4 @@
-package br.com.studiotrek.faculdadeimpacta.dagger.module
+package br.com.studiotrek.faculdadeimpacta.dagger.module.network
 
 /**
  * Created by Wilder on 18/02/18.

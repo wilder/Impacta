@@ -7,7 +7,7 @@ package br.com.studiotrek.faculdadeimpacta.dagger.component
 import br.com.studiotrek.faculdadeimpacta.App
 import br.com.studiotrek.faculdadeimpacta.dagger.module.AppModule
 import br.com.studiotrek.faculdadeimpacta.dagger.module.MainModule
-import br.com.studiotrek.faculdadeimpacta.dagger.module.NetworkModule
+import br.com.studiotrek.faculdadeimpacta.dagger.module.network.NetworkModule
 import br.com.studiotrek.faculdadeimpacta.presentation.gradesAbsence.GradesAbsenceActivity
 import br.com.studiotrek.faculdadeimpacta.presentation.home.HomeFragment
 import br.com.studiotrek.faculdadeimpacta.presentation.login.LoginActivity
