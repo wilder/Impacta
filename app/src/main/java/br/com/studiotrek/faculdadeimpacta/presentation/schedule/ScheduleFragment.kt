@@ -1,6 +1,7 @@
 package br.com.studiotrek.faculdadeimpacta.presentation.schedule
 
 import android.os.Bundle
+import android.os.Parcelable
 import android.support.v4.app.Fragment
 import android.util.Log
 import br.com.studiotrek.faculdadeimpacta.App
@@ -16,6 +17,7 @@ import br.com.studiotrek.faculdadeimpacta.domain.entity.CookieDTO
 import br.com.studiotrek.faculdadeimpacta.domain.entity.schedule.ScheduleResponse
 import io.github.luizgrp.sectionedrecyclerviewadapter.SectionedRecyclerViewAdapter
 import kotlinx.android.synthetic.main.fragment_schedule.*
+import java.util.ArrayList
 
 
 /**
@@ -26,6 +28,8 @@ class ScheduleFragment : Fragment(), SchedulePresenter.View {
     @Inject
     lateinit var presenter: SchedulePresenter
     private val TAG: String = "ScheduleFragment"
+    private var classSchedule: List<ScheduleResponse>? = null
+
 
     companion object {
         fun newInstance() = ScheduleFragment() as Fragment
@@ -36,20 +40,36 @@ class ScheduleFragment : Fragment(), SchedulePresenter.View {
         return inflater.inflate(R.layout.fragment_schedule, container, false)
     }
 
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        init()
+        init(savedInstanceState)
     }
 
-    private fun init() {
+    override fun onSaveInstanceState(outState: Bundle) {
+        if (classSchedule != null) {
+            outState.putParcelableArrayList("schedules", classSchedule as ArrayList<out Parcelable>)
+        }
+        super.onSaveInstanceState(outState)
+    }
+
+    private fun init(savedInstanceState: Bundle?) {
         ((activity!!.application) as App).component.inject(this)
         presenter.bindView(this)
 
-        pbSchedule.visibility = View.VISIBLE
-        getSchedule(PreferencesManager(context!!).cookie)
+        if (savedInstanceState == null || !savedInstanceState.containsKey("schedules")) {
+            pbSchedule.visibility = View.VISIBLE
+            getSchedule(PreferencesManager(context!!).cookie)
+        } else {
+            val schedules = savedInstanceState.get("schedules")
+            setupList(schedules as List<ScheduleResponse>)
+        }
     }
 
     private fun setupList(classSchedule: List<ScheduleResponse>) {
+
+        this.classSchedule = classSchedule
+
         val sectionAdapter = SectionedRecyclerViewAdapter()
 
         classSchedule.forEach {

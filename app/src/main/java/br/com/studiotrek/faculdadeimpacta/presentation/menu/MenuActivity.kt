@@ -1,16 +1,13 @@
 package br.com.studiotrek.faculdadeimpacta.presentation.menu
 
-import android.content.DialogInterface
-import android.content.Intent
 import android.os.Bundle
+import android.os.PersistableBundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v4.view.ViewPager
 import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
-import android.view.ContextMenu
 import android.view.Menu
 import android.view.MenuItem
-import android.view.View
 import br.com.studiotrek.faculdadeimpacta.App
 import br.com.studiotrek.faculdadeimpacta.R
 import br.com.studiotrek.faculdadeimpacta.presentation.base.ViewPagerAdapter
@@ -20,7 +17,6 @@ import br.com.studiotrek.faculdadeimpacta.presentation.semesterGrades.SemesterFr
 import br.com.studiotrek.faculdadeimpacta.utils.BottonNavigationViewHelper
 import kotlinx.android.synthetic.main.activity_menu.*
 import javax.inject.Inject
-import br.com.studiotrek.faculdadeimpacta.presentation.MainActivity
 import br.com.studiotrek.faculdadeimpacta.utils.Analytics
 import br.com.studiotrek.faculdadeimpacta.utils.PreferencesManager
 import com.google.android.gms.ads.AdListener
@@ -28,7 +24,6 @@ import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.InterstitialAd
 import com.google.android.gms.ads.MobileAds
 import com.google.firebase.analytics.FirebaseAnalytics
-import hotchemi.android.rate.OnClickButtonListener
 import hotchemi.android.rate.AppRate
 
 /**
@@ -47,7 +42,7 @@ class MenuActivity : AppCompatActivity(), MenuPresenter.View {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menu)
-        init()
+        init(savedInstanceState)
     }
 
     override fun onResume() {
@@ -55,11 +50,15 @@ class MenuActivity : AppCompatActivity(), MenuPresenter.View {
         viewpager.addOnPageChangeListener(mOnPageChangeListener)
     }
 
-    private fun init() {
+    override fun onSaveInstanceState(outState: Bundle?) {
+        outState!!.putBoolean("showAds", false)
+        super.onSaveInstanceState(outState)
+    }
+
+    private fun init(savedInstanceState: Bundle?) {
         (application as App).component.inject(this)
         presenter.bindView(this)
 
-        trackUsageForRateDialog()
         firebaseAnalytics = FirebaseAnalytics.getInstance(this)
 
         viewPagerAdapter = ViewPagerAdapter(supportFragmentManager)
@@ -68,7 +67,11 @@ class MenuActivity : AppCompatActivity(), MenuPresenter.View {
         navigation.itemIconTintList = null
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
         viewpager.addOnPageChangeListener(mOnPageChangeListener)
-        showAdMob()
+
+        if (savedInstanceState == null || !savedInstanceState.containsKey("showAds")){
+                trackUsageForRateDialog()
+                showAdMob()
+        }
     }
 
     private fun showAdMob() {

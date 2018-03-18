@@ -23,6 +23,8 @@ class SemesterFragment : Fragment(), SemesterPresenter.View {
     @Inject
     lateinit var presenter: SemesterPresenter
     private val TAG: String = "SemesterPresenter"
+    private val SEMESTER_KEY: String = "semester"
+    private var semesters: SemesterResponse? = null
 
     companion object {
         fun newInstance() = SemesterFragment() as Fragment
@@ -35,18 +37,33 @@ class SemesterFragment : Fragment(), SemesterPresenter.View {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        init()
+        init(savedInstanceState)
     }
 
-    private fun init() {
+    override fun onSaveInstanceState(outState: Bundle) {
+        if (semesters != null) {
+            outState.putParcelable(SEMESTER_KEY, semesters)
+        }
+        super.onSaveInstanceState(outState)
+    }
+
+    private fun init(savedInstanceState: Bundle?) {
         ((activity!!.application) as App).component.inject(this)
         presenter.bindView(this)
 
-        pbSemester.visibility = View.VISIBLE
-        getSemesterInfo(PreferencesManager(context!!).cookie)
+        if (savedInstanceState != null && savedInstanceState.containsKey(SEMESTER_KEY)) {
+            val semesters = savedInstanceState.get(SEMESTER_KEY) as SemesterResponse?
+            setupList(semesters as SemesterResponse)
+        } else {
+            pbSemester.visibility = View.VISIBLE
+            getSemesterInfo(PreferencesManager(context!!).cookie)
+        }
+
     }
 
     private fun setupList(semesterResponse : SemesterResponse) {
+        semesters = semesterResponse
+
         val sectionAdapter = SemesterAdapter(semesterResponse)
 
         rvSemester.layoutManager = LinearLayoutManager(context!!) as RecyclerView.LayoutManager?
