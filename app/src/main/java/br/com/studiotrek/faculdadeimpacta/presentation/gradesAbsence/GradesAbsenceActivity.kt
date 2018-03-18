@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.util.Log
+import android.view.MenuItem
 import android.view.View
 import br.com.studiotrek.faculdadeimpacta.App
 import br.com.studiotrek.faculdadeimpacta.R
@@ -30,8 +31,13 @@ class GradesAbsenceActivity : AppCompatActivity(), GradesAbsencePresenter.View {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_grades_absence)
+
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        supportActionBar!!.setDisplayShowHomeEnabled(true)
+
         init()
     }
+
 
     private fun init() {
         (application as App).component.inject(this)
@@ -47,8 +53,6 @@ class GradesAbsenceActivity : AppCompatActivity(), GradesAbsencePresenter.View {
             firebaseAnalytics = FirebaseAnalytics.getInstance(this)
             Analytics.logVisit(firebaseAnalytics, PreferencesManager(this).user?.ra!!, "$TAG - $semester")
         }
-
-
 
     }
 
@@ -76,4 +80,10 @@ class GradesAbsenceActivity : AppCompatActivity(), GradesAbsencePresenter.View {
         pbGrandesAbsence.visibility = View.INVISIBLE
     }
 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == android.R.id.home) {
+            finish()
+        }
+        return super.onOptionsItemSelected(item)
+    }
 }
