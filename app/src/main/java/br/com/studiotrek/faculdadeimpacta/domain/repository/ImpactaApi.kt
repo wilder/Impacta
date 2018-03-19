@@ -22,16 +22,16 @@ interface ImpactaApi {
     fun login(@Path("ra") ra: String, @Path("password") password: String): Observable<Response<LoginResponse>>
 
     //TODO: Change jsonobject to appropriate classes
-    @POST("horario")
+    @POST("v2/horario")
     fun getClassesSchedule(@Header("token") token: String): Observable<Response<List<ScheduleResponse>>>
 
     //TODO: Change jsonobject to appropriate classes
-    @POST("semestre-nota")
+    @POST("v2/semestre-nota")
     fun getSemesterGrades(@Header("token") token: String): Observable<Response<SemesterResponse>>
 
-    @POST("nota-falta")
+    @POST("v2/nota-falta")
     fun getGradesAbsence(@Header("token") token: String, @Body gradesAbsenceRequest: GradesAbsenceRequest) : Observable<Response<GradesAbsenceResponse>>
 
-    @POST("aula-dia")
+    @POST("v2/aula-dia")
     fun getHome(@Header("token") token: String) : Observable<Response<HomeScheduleResponse>>
 }
