@@ -1,5 +1,6 @@
 package br.com.studiotrek.faculdadeimpacta.presentation.menu
 
+import android.content.Intent
 import android.os.Bundle
 import android.os.PersistableBundle
 import android.support.design.widget.BottomNavigationView
@@ -10,8 +11,10 @@ import android.view.Menu
 import android.view.MenuItem
 import br.com.studiotrek.faculdadeimpacta.App
 import br.com.studiotrek.faculdadeimpacta.R
+import br.com.studiotrek.faculdadeimpacta.domain.entity.CookieDTO
 import br.com.studiotrek.faculdadeimpacta.presentation.base.ViewPagerAdapter
 import br.com.studiotrek.faculdadeimpacta.presentation.home.HomeFragment
+import br.com.studiotrek.faculdadeimpacta.presentation.login.LoginActivity
 import br.com.studiotrek.faculdadeimpacta.presentation.schedule.ScheduleFragment
 import br.com.studiotrek.faculdadeimpacta.presentation.semesterGrades.SemesterFragment
 import br.com.studiotrek.faculdadeimpacta.utils.BottonNavigationViewHelper
@@ -171,8 +174,20 @@ class MenuActivity : AppCompatActivity(), MenuPresenter.View {
                 displayAboutDialog()
                 true
             }
+
+            R.id.logout -> {
+                logout()
+                true
+            }
+
             else -> super.onOptionsItemSelected(item)
         }
+    }
+
+    private fun logout() {
+        PreferencesManager(this).user = null
+        startActivity(Intent(MenuActivity@this, LoginActivity::class.java))
+        finish()
     }
 
     private fun displayAboutDialog() {
